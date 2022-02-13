@@ -10,6 +10,7 @@ abstract class Routes {
   static const ART = _Paths.ART;
   static const COMMERCE = _Paths.COMMERCE;
   static const LEARNING_PORTAL = _Paths.LEARNING_PORTAL;
+  static const NAAC_IQAC = _Paths.NAAC_IQAC;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const ART = '/art';
   static const COMMERCE = '/commerce';
   static const LEARNING_PORTAL = '/learning-portal';
+  static const NAAC_IQAC = '/naac-iqac';
 }

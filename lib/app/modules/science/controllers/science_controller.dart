@@ -4,6 +4,14 @@ import 'package:get/get.dart';
 class ScienceController extends GetxController {
   final count = 0.obs;
 
+  List subjects = [
+    "PHYSICS",
+    "CHEMESTRY",
+    "MATHEMETICS",
+    "ZOOLOGY",
+    "BOTANY",
+  ];
+
   void goToAboutUsPage() {
     Get.toNamed(Routes.ABOUT_US);
   }

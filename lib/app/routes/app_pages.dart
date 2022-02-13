@@ -10,6 +10,8 @@ import 'package:college_web/app/modules/home/bindings/home_binding.dart';
 import 'package:college_web/app/modules/home/views/home_view.dart';
 import 'package:college_web/app/modules/learningPortal/bindings/learning_portal_binding.dart';
 import 'package:college_web/app/modules/learningPortal/views/learning_portal_view.dart';
+import 'package:college_web/app/modules/naacIqac/bindings/naac_iqac_binding.dart';
+import 'package:college_web/app/modules/naacIqac/views/naac_iqac_view.dart';
 import 'package:college_web/app/modules/science/bindings/science_binding.dart';
 import 'package:college_web/app/modules/science/views/science_view.dart';
 
@@ -50,6 +52,11 @@ class AppPages {
       name: _Paths.LEARNING_PORTAL,
       page: () => LearningPortalView(),
       binding: LearningPortalBinding(),
+    ),
+    GetPage(
+      name: _Paths.NAAC_IQAC,
+      page: () => NaacIqacView(),
+      binding: NaacIqacBinding(),
     ),
   ];
 }
