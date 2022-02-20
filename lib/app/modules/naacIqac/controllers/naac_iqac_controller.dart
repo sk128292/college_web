@@ -33,6 +33,7 @@ class NaacIqacController extends GetxController {
   RxBool iqacActive = false.obs;
 
   RxInt selectedIndex = 0.obs;
+  RxInt selectedSession = 0.obs;
 
   RxList aboutIqacData = [].obs;
   RxList calenderIqacData = [].obs;
@@ -60,11 +61,22 @@ class NaacIqacController extends GetxController {
     {"name": "Minutes of IQAC Meetings"},
     {"name": "PO, PSO, CO"},
     {"name": "Feedback"},
-    {"name": "Department"},
+  ];
+  List<Map<String, dynamic>> sessionList = [
+    {"session": "2017 - 2018"},
+    {"session": "2018 - 2019"},
+    {"session": "2019 - 2020"},
+    {"session": "2020 - 2021"},
+    {"session": "2021 - 2022"},
   ];
 
   void changeIndex(index) {
     selectedIndex.value = index;
+    ;
+  }
+
+  void changeSession(index) {
+    selectedSession.value = index;
     ;
   }
 
@@ -111,7 +123,7 @@ class NaacIqacController extends GetxController {
       print("jhhhhhhh" + resp.toString());
       AqarIqacModel data = AqarIqacModel.fromJson(resp);
       aqarIqacResponse.value = data;
-      aqarIqacData.value = aqarIqacResponse.value!.data!.toList();
+      aqarIqacData.value = aqarIqacResponse.value!.data!.reversed.toList();
 
       print(
         "hhh" + aqarIqacData.toList().toString(),

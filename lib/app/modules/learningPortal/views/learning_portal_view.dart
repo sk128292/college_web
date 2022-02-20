@@ -44,18 +44,18 @@ class LearningPortalView extends GetView<LearningPortalController> {
                   ),
                 ],
               ),
-              SizedBox(width: 15),
-              Row(
-                children: [
-                  Icon(Icons.edit, size: 17),
-                  SizedBox(width: 5),
-                  Text(
-                    "Signup",
-                    textScaleFactor: 1,
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ],
-              ),
+              // SizedBox(width: 15),
+              // Row(
+              //   children: [
+              //     Icon(Icons.edit, size: 17),
+              //     SizedBox(width: 5),
+              //     Text(
+              //       "Signup",
+              //       textScaleFactor: 1,
+              //       style: TextStyle(fontSize: 15),
+              //     ),
+              //   ],
+              // ),
               SizedBox(width: 40),
             ],
           )
@@ -93,50 +93,55 @@ class LearningPortalView extends GetView<LearningPortalController> {
                 ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 50),
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: controller.learningData.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {
-                      html.window.open(
-                          controller.learningData[index]["link"].toString(),
-                          "_blank");
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      margin: EdgeInsets.symmetric(
-                        vertical: 8,
-                        horizontal: 20,
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 20,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.white,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            controller.learningData[index]["title"].toString(),
-                            // "Free Jobs Aleart, all over india",
-                            textScaleFactor: 1,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
+            Obx(
+              () => Container(
+                padding: EdgeInsets.symmetric(vertical: 50),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: controller.learningPortalData.length,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
+                        html.window.open(
+                            controller.learningPortalData[index].uploadBook,
+                            "_blank");
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        margin: EdgeInsets.symmetric(
+                          vertical: 8,
+                          horizontal: 20,
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 20,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.white,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              controller.learningPortalData[index].title +
+                                  ", " +
+                                  controller
+                                      .learningPortalData[index].subjectCore,
+                              // "Free Jobs Aleart, all over india",
+                              textScaleFactor: 1,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
-                          ),
-                          Icon(Icons.arrow_forward_ios)
-                        ],
+                            Icon(Icons.arrow_forward_ios)
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
             FooterWidget(),

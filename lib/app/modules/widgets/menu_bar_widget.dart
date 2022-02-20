@@ -15,6 +15,7 @@ class _MenuBarState extends State<MenuBar> {
   Color color2 = Colors.white;
   Color color3 = Colors.white;
   Color color4 = Colors.white;
+  Color color5 = Colors.white;
 
   // showMenus(BuildContext context) async {
   //   await showMenu(
@@ -215,7 +216,7 @@ class _MenuBarState extends State<MenuBar> {
                 ),
                 SizedBox(width: 5),
                 Text(
-                  "ADMISSIONS",
+                  "STUDENT CORNER",
                   textScaleFactor: 1,
                   style: TextStyle(
                     fontSize: 15,
@@ -226,6 +227,38 @@ class _MenuBarState extends State<MenuBar> {
             ),
           ),
           SizedBox(width: 20),
+          MouseRegion(
+            onEnter: (event) {
+              setState(() {
+                color5 = Colors.green;
+              });
+            },
+            onExit: (event) {
+              setState(
+                () {
+                  color5 = Colors.white;
+                },
+              );
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.login,
+                  size: 17,
+                  color: color5,
+                ),
+                SizedBox(width: 5),
+                Text(
+                  "DEPARTMENT",
+                  textScaleFactor: 1,
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: color5,
+                  ),
+                ),
+              ],
+            ),
+          ),
           // Row(
           //   children: [
           //     Icon(Icons.create, size: 17),

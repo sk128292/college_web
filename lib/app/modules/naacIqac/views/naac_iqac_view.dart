@@ -4,6 +4,7 @@ import 'package:college_web/app/routes/app_pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 
 import 'package:get/get.dart';
 import 'dart:html' as html;
@@ -47,18 +48,18 @@ class NaacIqacView extends GetView<NaacIqacController> {
                   ),
                 ],
               ),
-              SizedBox(width: 15),
-              Row(
-                children: [
-                  Icon(Icons.edit, size: 17),
-                  SizedBox(width: 5),
-                  Text(
-                    "Signup",
-                    textScaleFactor: 1,
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ],
-              ),
+              // SizedBox(width: 15),
+              // Row(
+              //   children: [
+              //     Icon(Icons.edit, size: 17),
+              //     SizedBox(width: 5),
+              //     Text(
+              //       "Signup",
+              //       textScaleFactor: 1,
+              //       style: TextStyle(fontSize: 15),
+              //     ),
+              //   ],
+              // ),
               SizedBox(width: 40),
             ],
           )
@@ -101,7 +102,7 @@ class NaacIqacView extends GetView<NaacIqacController> {
               children: [
                 Obx(
                   () => Container(
-                    height: Get.height * .7,
+                    height: Get.height * .8,
                     width: 300,
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                     margin: EdgeInsets.symmetric(vertical: 1, horizontal: 0),
@@ -130,12 +131,12 @@ class NaacIqacView extends GetView<NaacIqacController> {
                                     border: Border.all(
                                       width: 2,
                                       color: controller.naacActive.isTrue
-                                          ? Colors.deepOrangeAccent
+                                          ? Color(0xFFA41E34)
                                           : Colors.black,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                     color: controller.naacActive.isTrue
-                                        ? Colors.deepOrangeAccent
+                                        ? Color(0xFFA41E34)
                                         : Colors.white,
                                   ),
                                   child: Text(
@@ -165,12 +166,12 @@ class NaacIqacView extends GetView<NaacIqacController> {
                                       width: 2,
                                       color: controller.naacActive.isTrue
                                           ? Colors.black
-                                          : Colors.deepOrangeAccent,
+                                          : Color(0xFFA41E34),
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                     color: controller.naacActive.isTrue
                                         ? Colors.white
-                                        : Colors.deepOrangeAccent,
+                                        : Color(0xFFA41E34),
                                   ),
                                   child: Text(
                                     "IQAC",
@@ -207,13 +208,13 @@ class NaacIqacView extends GetView<NaacIqacController> {
                                               color: index ==
                                                       controller
                                                           .selectedIndex.value
-                                                  ? Colors.deepOrangeAccent
+                                                  ? Color(0xFFA41E34)
                                                   : Colors.black,
                                             ),
                                             color: index ==
                                                     controller
                                                         .selectedIndex.value
-                                                ? Colors.deepOrangeAccent
+                                                ? Color(0xFFA41E34)
                                                 : Colors.white,
                                           ),
                                           child: InkWell(
@@ -244,7 +245,7 @@ class NaacIqacView extends GetView<NaacIqacController> {
                                                               .selectedIndex
                                                               .value
                                                       ? Colors.white
-                                                      : Colors.deepOrangeAccent,
+                                                      : Color(0xFFA41E34),
                                                   size: 17,
                                                 )
                                               ],
@@ -277,13 +278,13 @@ class NaacIqacView extends GetView<NaacIqacController> {
                                                 color: index ==
                                                         controller
                                                             .selectedIndex.value
-                                                    ? Colors.deepOrangeAccent
+                                                    ? Color(0xFFA41E34)
                                                     : Colors.black,
                                               ),
                                               color: index ==
                                                       controller
                                                           .selectedIndex.value
-                                                  ? Colors.deepOrangeAccent
+                                                  ? Color(0xFFA41E34)
                                                   : Colors.white,
                                             ),
                                             child: Row(
@@ -310,7 +311,7 @@ class NaacIqacView extends GetView<NaacIqacController> {
                                                               .selectedIndex
                                                               .value
                                                       ? Colors.white
-                                                      : Colors.deepOrangeAccent,
+                                                      : Color(0xFFA41E34),
                                                   size: 17,
                                                 )
                                               ],
@@ -328,7 +329,7 @@ class NaacIqacView extends GetView<NaacIqacController> {
                 ),
                 Expanded(
                   child: Container(
-                    height: Get.height * .7,
+                    height: Get.height * .8,
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                     margin: EdgeInsets.symmetric(vertical: 1, horizontal: 3),
                     decoration: BoxDecoration(
@@ -632,160 +633,432 @@ class NaacIqacView extends GetView<NaacIqacController> {
                                                     },
                                                   )
                                                 : controller.selectedIndex == 4
-                                                    ? ListView.builder(
-                                                        shrinkWrap: true,
-                                                        itemCount: controller
-                                                            .aqarIqacData
-                                                            .length,
-                                                        itemBuilder:
-                                                            (context, index) {
-                                                          return InkWell(
-                                                            onTap: () {
-                                                              html.window.open(
-                                                                  controller
-                                                                      .aqarIqacData[
-                                                                          index]
-                                                                      .aqarUpload
-                                                                      .toString(),
-                                                                  "_blank");
+                                                    ? Column(
+                                                        children: [
+                                                          Table(
+                                                            columnWidths: {
+                                                              0: FlexColumnWidth(
+                                                                  1),
+                                                              1: FlexColumnWidth(
+                                                                  4),
+                                                              2: FlexColumnWidth(
+                                                                  1),
                                                             },
-                                                            child: Card(
-                                                              margin: EdgeInsets
-                                                                  .all(10),
-                                                              color: Colors
-                                                                  .grey[200],
-                                                              elevation: 5,
-                                                              child: Padding(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                            .all(
-                                                                        10.0),
-                                                                child: Text(
-                                                                  controller
-                                                                      .aqarIqacData[
-                                                                          index]
-                                                                      .aqarParticular,
-                                                                  style:
-                                                                      TextStyle(
-                                                                    fontSize:
-                                                                        20,
+                                                            defaultVerticalAlignment:
+                                                                TableCellVerticalAlignment
+                                                                    .middle,
+                                                            border:
+                                                                TableBorder.all(
+                                                                    color: Colors
+                                                                        .black),
+                                                            children: [
+                                                              TableRow(
+                                                                children: [
+                                                                  Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            15),
+                                                                    child: Text(
+                                                                      "S No.",
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        fontSize:
+                                                                            22,
+                                                                      ),
+                                                                    ),
                                                                   ),
-                                                                ),
+                                                                  Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            15.0),
+                                                                    child: Text(
+                                                                      "Particulars",
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        fontSize:
+                                                                            22,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            15.0),
+                                                                    child: Text(
+                                                                      "Pdf File",
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        fontSize:
+                                                                            22,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
                                                               ),
+                                                            ],
+                                                          ),
+                                                          Table(
+                                                            columnWidths: {
+                                                              0: FlexColumnWidth(
+                                                                  1),
+                                                              1: FlexColumnWidth(
+                                                                  4),
+                                                              2: FlexColumnWidth(
+                                                                  1),
+                                                            },
+                                                            defaultVerticalAlignment:
+                                                                TableCellVerticalAlignment
+                                                                    .middle,
+                                                            border:
+                                                                TableBorder.all(
+                                                                    color: Colors
+                                                                        .black),
+                                                            children: List<
+                                                                TableRow>.generate(
+                                                              controller
+                                                                  .aqarIqacData
+                                                                  .length,
+                                                              (index) {
+                                                                return TableRow(
+                                                                  children: [
+                                                                    Text(
+                                                                        "${controller.aqarIqacData[index].aqarSNo.toString()}.",
+                                                                        textAlign:
+                                                                            TextAlign.center),
+                                                                    Text(
+                                                                        controller
+                                                                            .aqarIqacData[
+                                                                                index]
+                                                                            .aqarParticular,
+                                                                        textAlign:
+                                                                            TextAlign.center),
+                                                                    IconButton(
+                                                                      onPressed:
+                                                                          () {
+                                                                        html.window.open(
+                                                                            controller.aqarIqacData[index].aqarUpload.toString(),
+                                                                            "_blank");
+                                                                      },
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .picture_as_pdf,
+                                                                        color: Color(
+                                                                            0xFFA41E34),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                );
+                                                              },
                                                             ),
-                                                          );
-                                                        },
+                                                          ),
+                                                        ],
                                                       )
                                                     : controller.selectedIndex ==
                                                             5
-                                                        ? ListView.builder(
-                                                            shrinkWrap: true,
-                                                            itemCount: controller
-                                                                .meetingIqacData
-                                                                .length,
-                                                            itemBuilder:
-                                                                (context,
-                                                                    index) {
-                                                              return InkWell(
-                                                                onTap: () {
-                                                                  html.window.open(
-                                                                      controller
-                                                                          .meetingIqacData[
-                                                                              index]
-                                                                          .minutesOfIqacMeetingFile
-                                                                          .toString(),
-                                                                      "_blank");
-                                                                },
-                                                                child: Card(
-                                                                  margin:
-                                                                      EdgeInsets
-                                                                          .all(
-                                                                              10),
-                                                                  color: Colors
-                                                                          .grey[
-                                                                      200],
-                                                                  elevation: 5,
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsets
-                                                                            .all(
-                                                                        10.0),
-                                                                    child: Text(
-                                                                      controller
-                                                                          .meetingIqacData[
-                                                                              index]
-                                                                          .iqacMinutesOfMeetingName
-                                                                          .toString(),
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontSize:
-                                                                            20,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            },
-                                                          )
-                                                        : controller.selectedIndex ==
-                                                                8
-                                                            ? ListView.builder(
-                                                                shrinkWrap:
-                                                                    true,
-                                                                itemCount:
-                                                                    controller
-                                                                        .departmentIqacData
-                                                                        .length,
-                                                                itemBuilder:
-                                                                    (context,
-                                                                        index) {
-                                                                  return InkWell(
-                                                                    onTap:
-                                                                        () {},
-                                                                    child: Card(
-                                                                      margin: EdgeInsets
-                                                                          .all(
-                                                                              10),
-                                                                      color: Colors
-                                                                              .grey[
-                                                                          200],
-                                                                      elevation:
-                                                                          5,
-                                                                      child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            const EdgeInsets.all(10.0),
-                                                                        child:
-                                                                            Text(
-                                                                          controller
-                                                                              .departmentIqacData[index]
-                                                                              .departmentName,
-                                                                          style:
-                                                                              TextStyle(
-                                                                            fontSize:
-                                                                                20,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              )
-                                                            : Container(
-                                                                child: Center(
+                                                        ? Column(
+                                                            children: [
+                                                              Card(
+                                                                color: Colors
+                                                                    .grey[200],
+                                                                elevation: 5,
+                                                                child: Padding(
+                                                                  padding:
+                                                                      const EdgeInsets
+                                                                              .all(
+                                                                          10.0),
                                                                   child: Text(
-                                                                    "No Data Available",
+                                                                    "Minutes of IQAC Meetings",
                                                                     style:
                                                                         TextStyle(
                                                                       fontSize:
-                                                                          40,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
+                                                                          20,
                                                                     ),
                                                                   ),
                                                                 ),
                                                               ),
+                                                              Container(
+                                                                width: 1.5,
+                                                                height: 25,
+                                                                color: Colors
+                                                                    .black,
+                                                              ),
+                                                              Card(
+                                                                color: Colors
+                                                                    .grey[200],
+                                                                elevation: 5,
+                                                                child: Padding(
+                                                                  padding:
+                                                                      const EdgeInsets
+                                                                              .all(
+                                                                          10.0),
+                                                                  child: Text(
+                                                                    "Academic year",
+                                                                    style:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          20,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                                width: 1.5,
+                                                                height: 25,
+                                                                color: Colors
+                                                                    .black,
+                                                              ),
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(8),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  border: Border.all(
+                                                                      color: Colors
+                                                                          .black),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8),
+                                                                ),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceAround,
+                                                                  children: List
+                                                                      .generate(
+                                                                    controller
+                                                                        .sessionList
+                                                                        .length,
+                                                                    (index) {
+                                                                      return Obx(
+                                                                        () =>
+                                                                            InkWell(
+                                                                          onTap:
+                                                                              () {
+                                                                            controller.changeSession(index);
+                                                                          },
+                                                                          child:
+                                                                              Card(
+                                                                            color: controller.selectedSession.value == index
+                                                                                ? Color(0xFFA41E34)
+                                                                                : Colors.grey[200],
+                                                                            elevation:
+                                                                                5,
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: const EdgeInsets.all(10.0),
+                                                                              child: Text(
+                                                                                controller.sessionList[index]["session"],
+                                                                                style: TextStyle(
+                                                                                  fontSize: 20,
+                                                                                  color: controller.selectedSession.value == index ? Colors.white : Colors.black,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              SizedBox(
+                                                                  height: 30),
+                                                              Table(
+                                                                columnWidths: {
+                                                                  0: FlexColumnWidth(
+                                                                      1),
+                                                                  1: FlexColumnWidth(
+                                                                      4),
+                                                                  2: FlexColumnWidth(
+                                                                      1),
+                                                                },
+                                                                defaultVerticalAlignment:
+                                                                    TableCellVerticalAlignment
+                                                                        .middle,
+                                                                border: TableBorder.all(
+                                                                    color: Colors
+                                                                        .black),
+                                                                children: [
+                                                                  TableRow(
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(15),
+                                                                        child:
+                                                                            Text(
+                                                                          "Meeting No.",
+                                                                          textAlign:
+                                                                              TextAlign.center,
+                                                                          style:
+                                                                              TextStyle(
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontSize:
+                                                                                22,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(15.0),
+                                                                        child:
+                                                                            Text(
+                                                                          "Meeting Held on",
+                                                                          textAlign:
+                                                                              TextAlign.center,
+                                                                          style:
+                                                                              TextStyle(
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontSize:
+                                                                                22,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(15.0),
+                                                                        child:
+                                                                            Text(
+                                                                          "Pdf File",
+                                                                          textAlign:
+                                                                              TextAlign.center,
+                                                                          style:
+                                                                              TextStyle(
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontSize:
+                                                                                22,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Table(
+                                                                columnWidths: {
+                                                                  0: FlexColumnWidth(
+                                                                      1),
+                                                                  1: FlexColumnWidth(
+                                                                      4),
+                                                                  2: FlexColumnWidth(
+                                                                      1),
+                                                                },
+                                                                defaultVerticalAlignment:
+                                                                    TableCellVerticalAlignment
+                                                                        .middle,
+                                                                border: TableBorder.all(
+                                                                    color: Colors
+                                                                        .black),
+                                                                children: List<
+                                                                    TableRow>.generate(
+                                                                  controller
+                                                                      .meetingIqacData
+                                                                      .length,
+                                                                  (index) {
+                                                                    return TableRow(
+                                                                      children: [
+                                                                        Text(
+                                                                            "${controller.meetingIqacData[index].meetingNo.toString()}.",
+                                                                            textAlign:
+                                                                                TextAlign.center),
+                                                                        Text(
+                                                                            controller.meetingIqacData[index].heldOn,
+                                                                            textAlign: TextAlign.center),
+                                                                        IconButton(
+                                                                          onPressed:
+                                                                              () {
+                                                                            html.window.open(controller.meetingIqacData[index].minutesOfIqacMeetingFile.toString(),
+                                                                                "_blank");
+                                                                          },
+                                                                          icon: Icon(
+                                                                              Icons.picture_as_pdf,
+                                                                              color: Color(0xFFA41E34)),
+                                                                        ),
+                                                                      ],
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          )
+                                                        // : controller.selectedIndex ==
+                                                        //         8
+                                                        //     ? ListView.builder(
+                                                        //         shrinkWrap:
+                                                        //             true,
+                                                        //         itemCount:
+                                                        //             controller
+                                                        //                 .departmentIqacData
+                                                        //                 .length,
+                                                        //         itemBuilder:
+                                                        //             (context,
+                                                        //                 index) {
+                                                        //           return InkWell(
+                                                        //             onTap:
+                                                        //                 () {},
+                                                        //             child: Card(
+                                                        //               margin: EdgeInsets
+                                                        //                   .all(
+                                                        //                       10),
+                                                        //               color: Colors
+                                                        //                       .grey[
+                                                        //                   200],
+                                                        //               elevation:
+                                                        //                   5,
+                                                        //               child:
+                                                        //                   Padding(
+                                                        //                 padding:
+                                                        //                     const EdgeInsets.all(10.0),
+                                                        //                 child:
+                                                        //                     Text(
+                                                        //                   controller
+                                                        //                       .departmentIqacData[index]
+                                                        //                       .departmentName,
+                                                        //                   style:
+                                                        //                       TextStyle(
+                                                        //                     fontSize:
+                                                        //                         20,
+                                                        //                   ),
+                                                        //                 ),
+                                                        //               ),
+                                                        //             ),
+                                                        //           );
+                                                        //         },
+                                                        //       )
+                                                        : Container(
+                                                            child: Center(
+                                                              child: Text(
+                                                                "No Data Available",
+                                                                style:
+                                                                    TextStyle(
+                                                                  fontSize: 40,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
                               ),
                       ),
                     ),

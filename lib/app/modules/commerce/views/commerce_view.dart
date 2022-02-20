@@ -43,18 +43,18 @@ class CommerceView extends GetView<CommerceController> {
                   ),
                 ],
               ),
-              SizedBox(width: 15),
-              Row(
-                children: [
-                  Icon(Icons.edit, size: 17),
-                  SizedBox(width: 5),
-                  Text(
-                    "Signup",
-                    textScaleFactor: 1,
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ],
-              ),
+              // SizedBox(width: 15),
+              // Row(
+              //   children: [
+              //     Icon(Icons.edit, size: 17),
+              //     SizedBox(width: 5),
+              //     Text(
+              //       "Signup",
+              //       textScaleFactor: 1,
+              //       style: TextStyle(fontSize: 15),
+              //     ),
+              //   ],
+              // ),
               SizedBox(width: 40),
             ],
           )

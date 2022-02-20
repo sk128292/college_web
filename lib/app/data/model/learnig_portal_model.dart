@@ -26,28 +26,37 @@ class LearningPortalModel {
 
 class Data {
   int? id;
+  String? subjectCore;
   String? title;
-  String? subject;
   String? uploadBook;
   String? youtubeUrl;
+  int? semCore;
 
-  Data({this.id, this.title, this.subject, this.uploadBook, this.youtubeUrl});
+  Data(
+      {this.id,
+      this.subjectCore,
+      this.title,
+      this.uploadBook,
+      this.youtubeUrl,
+      this.semCore});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
+    subjectCore = json['subject_core'];
     title = json['title'];
-    subject = json['subject'];
     uploadBook = json['upload_book'];
     youtubeUrl = json['youtube_url'];
+    semCore = json['sem_core'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
+    data['subject_core'] = this.subjectCore;
     data['title'] = this.title;
-    data['subject'] = this.subject;
     data['upload_book'] = this.uploadBook;
     data['youtube_url'] = this.youtubeUrl;
+    data['sem_core'] = this.semCore;
     return data;
   }
 }

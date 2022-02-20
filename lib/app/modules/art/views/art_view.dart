@@ -44,18 +44,18 @@ class ArtView extends GetView<ArtController> {
                   ),
                 ],
               ),
-              SizedBox(width: 15),
-              Row(
-                children: [
-                  Icon(Icons.edit, size: 17),
-                  SizedBox(width: 5),
-                  Text(
-                    "Signup",
-                    textScaleFactor: 1,
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ],
-              ),
+              // SizedBox(width: 15),
+              // Row(
+              //   children: [
+              //     Icon(Icons.edit, size: 17),
+              //     SizedBox(width: 5),
+              //     Text(
+              //       "Signup",
+              //       textScaleFactor: 1,
+              //       style: TextStyle(fontSize: 15),
+              //     ),
+              //   ],
+              // ),
               SizedBox(width: 40),
             ],
           )
