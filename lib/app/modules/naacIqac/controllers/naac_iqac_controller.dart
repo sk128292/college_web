@@ -72,7 +72,6 @@ class NaacIqacController extends GetxController {
 
   void changeIndex(index) {
     selectedIndex.value = index;
-    ;
   }
 
   void changeSession(index) {

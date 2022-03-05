@@ -70,7 +70,7 @@ class _MenuBarState extends State<MenuBar> {
                   ),
                   SizedBox(width: 5),
                   Text(
-                    "ABOUT RDBM",
+                    "ABOUT RDBMM",
                     textScaleFactor: 1,
                     style: TextStyle(
                       fontSize: 15,
@@ -134,7 +134,6 @@ class _MenuBarState extends State<MenuBar> {
               );
             },
             child: InkWell(
-              onTap: () {},
               child: Row(
                 children: [
                   Icon(
@@ -159,40 +158,77 @@ class _MenuBarState extends State<MenuBar> {
           MouseRegion(
             onEnter: (event) {
               setState(() {
-                color3 = Colors.green;
+                color5 = Colors.green;
               });
             },
             onExit: (event) {
               setState(
                 () {
-                  color3 = Colors.white;
+                  color5 = Colors.white;
                 },
               );
             },
             child: InkWell(
               onTap: () {
-                Get.toNamed(Routes.LEARNING_PORTAL);
+                Get.toNamed(Routes.DEPARTMENT);
               },
               child: Row(
                 children: [
                   Icon(
-                    Icons.mail,
+                    Icons.apartment,
                     size: 17,
-                    color: color3,
+                    color: color5,
                   ),
                   SizedBox(width: 5),
                   Text(
-                    "E-LEARNING",
+                    "DEPARTMENTS",
                     textScaleFactor: 1,
                     style: TextStyle(
                       fontSize: 15,
-                      color: color3,
+                      color: color5,
                     ),
                   ),
                 ],
               ),
             ),
           ),
+          // MouseRegion(
+          //   onEnter: (event) {
+          //     setState(() {
+          //       color3 = Colors.green;
+          //     });
+          //   },
+          //   onExit: (event) {
+          //     setState(
+          //       () {
+          //         color3 = Colors.white;
+          //       },
+          //     );
+          //   },
+          //   child: InkWell(
+          //     onTap: () {
+          //       Get.toNamed(Routes.LEARNING_PORTAL);
+          //     },
+          //     child: Row(
+          //       children: [
+          //         Icon(
+          //           Icons.mail,
+          //           size: 17,
+          //           color: color3,
+          //         ),
+          //         SizedBox(width: 5),
+          //         Text(
+          //           "E-LEARNING",
+          //           textScaleFactor: 1,
+          //           style: TextStyle(
+          //             fontSize: 15,
+          //             color: color3,
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           SizedBox(width: 20),
           MouseRegion(
             onEnter: (event) {
@@ -207,58 +243,32 @@ class _MenuBarState extends State<MenuBar> {
                 },
               );
             },
-            child: Row(
-              children: [
-                Icon(
-                  Icons.login,
-                  size: 17,
-                  color: color4,
-                ),
-                SizedBox(width: 5),
-                Text(
-                  "STUDENT CORNER",
-                  textScaleFactor: 1,
-                  style: TextStyle(
-                    fontSize: 15,
+            child: InkWell(
+              onTap: () {
+                Get.toNamed(Routes.STUDENT_CORNER);
+              },
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.book,
+                    size: 17,
                     color: color4,
                   ),
-                ),
-              ],
+                  SizedBox(width: 5),
+                  Text(
+                    "STUDENT CORNER",
+                    textScaleFactor: 1,
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: color4,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(width: 20),
-          MouseRegion(
-            onEnter: (event) {
-              setState(() {
-                color5 = Colors.green;
-              });
-            },
-            onExit: (event) {
-              setState(
-                () {
-                  color5 = Colors.white;
-                },
-              );
-            },
-            child: Row(
-              children: [
-                Icon(
-                  Icons.login,
-                  size: 17,
-                  color: color5,
-                ),
-                SizedBox(width: 5),
-                Text(
-                  "DEPARTMENT",
-                  textScaleFactor: 1,
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: color5,
-                  ),
-                ),
-              ],
-            ),
-          ),
+
           // Row(
           //   children: [
           //     Icon(Icons.create, size: 17),

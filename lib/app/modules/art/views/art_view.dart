@@ -21,7 +21,7 @@ class ArtView extends GetView<ArtController> {
               Get.toNamed(Routes.HOME);
             },
             child: Text(
-              "RDBM College",
+              "RDBM Mahavidyalaya",
               textScaleFactor: 1,
               style: TextStyle(fontSize: 25),
             ),

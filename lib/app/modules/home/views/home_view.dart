@@ -27,7 +27,7 @@ class HomeView extends GetView<HomeController> {
               Get.toNamed(Routes.HOME);
             },
             child: Text(
-              "RDBM College",
+              "RDBM Mahavidyalaya",
               textScaleFactor: 1,
               style: TextStyle(fontSize: 25),
             ),
@@ -270,7 +270,7 @@ class HomeView extends GetView<HomeController> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Get.toNamed(Routes.SCIENCE);
+                            // Get.toNamed(Routes.SCIENCE);
                           },
                           child: Container(
                             height: Get.height * .4,
@@ -322,7 +322,7 @@ class HomeView extends GetView<HomeController> {
                             Expanded(
                               child: InkWell(
                                 onTap: () {
-                                  Get.toNamed(Routes.ART);
+                                  // Get.toNamed(Routes.ART);
                                 },
                                 child: Container(
                                   height: Get.height * .3,
@@ -373,7 +373,7 @@ class HomeView extends GetView<HomeController> {
                             Expanded(
                               child: InkWell(
                                 onTap: () {
-                                  Get.toNamed(Routes.COMMERCE);
+                                  // Get.toNamed(Routes.COMMERCE);
                                 },
                                 child: Container(
                                   height: Get.height * .3,
@@ -452,7 +452,9 @@ class HomeView extends GetView<HomeController> {
                         ),
                         SizedBox(height: 30),
                         MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(Routes.DEPARTMENT);
+                          },
                           padding:
                               EdgeInsets.symmetric(vertical: 6, horizontal: 35),
                           color: Color(0xFFA41E34),
@@ -575,37 +577,41 @@ class HomeView extends GetView<HomeController> {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10)),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            height: Get.height * .35,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                image: AssetImage("assets/college1.jpg"),
-                                fit: BoxFit.cover,
+                          Column(
+                            children: [
+                              Container(
+                                height: Get.height * .35,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/college1.jpg"),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            ),
+                              SizedBox(height: 20),
+                              Text(
+                                "A talk on management of Personal Finance",
+                                textScaleFactor: 1,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Text(
+                                "We are pleased to inform you that the Department of Commerce in collaboration with the Association of Mutual Funds in India (AMFI)is organizing a national level webinar on A talk on management of Personal Finance Date 15.11.2021 Time 11:00 AM ",
+                                textScaleFactor: 1,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  height: 1.5,
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(height: 20),
-                          Text(
-                            "A talk on management of Personal Finance",
-                            textScaleFactor: 1,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Text(
-                            "We are pleased to inform you that the Department of Commerce in collaboration with the Association of Mutual Funds in India (AMFI)is organizing a national level webinar on A talk on management of Personal Finance Date 15.11.2021 Time 11:00 AM ",
-                            textScaleFactor: 1,
-                            style: TextStyle(
-                              fontSize: 15,
-                              height: 1.5,
-                            ),
-                          ),
-                          SizedBox(height: 20),
                           MaterialButton(
                             onPressed: () {},
                             padding: EdgeInsets.symmetric(
@@ -633,6 +639,7 @@ class HomeView extends GetView<HomeController> {
                               ],
                             ),
                           ),
+                          SizedBox(height: 20),
                         ],
                       ),
                     ),
@@ -645,37 +652,41 @@ class HomeView extends GetView<HomeController> {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10)),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            height: Get.height * .35,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                image: AssetImage("assets/news1.jpg"),
-                                fit: BoxFit.cover,
+                          Column(
+                            children: [
+                              Container(
+                                height: Get.height * .35,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/news1.jpg"),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            ),
+                              SizedBox(height: 20),
+                              Text(
+                                "Women in Higher Education",
+                                textScaleFactor: 1,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Text(
+                                "It is our pleasure to organise a webinar on Women in Higher Education. We are glad to have Dr.Surbhi Madan Department of Mathematics from Shivaji College, University of Delhi as a speaker. We cordially welcome her and are anxious to take heed .... ",
+                                textScaleFactor: 1,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  height: 1.5,
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(height: 20),
-                          Text(
-                            "Women in Higher Education",
-                            textScaleFactor: 1,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Text(
-                            "It is our pleasure to organise a webinar on Women in Higher Education. We are glad to have Dr.Surbhi Madan Department of Mathematics from Shivaji College, University of Delhi as a speaker. We cordially welcome her and are anxious to take heed .... ",
-                            textScaleFactor: 1,
-                            style: TextStyle(
-                              fontSize: 15,
-                              height: 1.5,
-                            ),
-                          ),
-                          SizedBox(height: 20),
                           MaterialButton(
                             onPressed: () {},
                             padding: EdgeInsets.symmetric(
@@ -703,6 +714,7 @@ class HomeView extends GetView<HomeController> {
                               ],
                             ),
                           ),
+                          SizedBox(height: 20),
                         ],
                       ),
                     ),
