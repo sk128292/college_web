@@ -1,6 +1,5 @@
 import 'package:college_web/app/modules/widgets/footer.dart';
 import 'package:college_web/app/modules/widgets/menu_bar_widget.dart';
-import 'package:college_web/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -14,20 +13,17 @@ class AboutUsView extends GetView<AboutUsController> {
       appBar: AppBar(
         backgroundColor: Color(0xFFA41E34),
         leading: Padding(
-          padding: const EdgeInsets.only(left: 100, top: 15),
-          child: InkWell(
-            onTap: () {
-              Get.toNamed(Routes.HOME);
-            },
-            child: Text(
-              "RDBM Mahavidyalaya",
-              textScaleFactor: 1,
-              style: TextStyle(fontSize: 25),
-            ),
+          padding: const EdgeInsets.only(left: 100, top: 10),
+          child: Row(
+            children: [
+              Text("Phone: +91 9431548372, "),
+              SizedBox(width: 15),
+              Text("Email: principal@rdbmm.ac.in"),
+            ],
           ),
         ),
         automaticallyImplyLeading: false,
-        leadingWidth: 400,
+        leadingWidth: 500,
         actions: [
           SizedBox(width: 20),
           Row(
@@ -60,7 +56,7 @@ class AboutUsView extends GetView<AboutUsController> {
           )
         ],
         bottom: PreferredSize(
-            child: MenuBar(), preferredSize: Size.fromHeight(20.0)),
+            child: MenuBar(), preferredSize: Size.fromHeight(25.0)),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -91,7 +87,7 @@ class AboutUsView extends GetView<AboutUsController> {
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-              color: Color(0xFF3E6259),
+              // color: Color(0xFF3E6259),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -99,7 +95,7 @@ class AboutUsView extends GetView<AboutUsController> {
                     "About Rama Devi Bajla Mahila Mahavidyalaya",
                     textScaleFactor: 1,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Color(0xFFA41E34),
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 3,
@@ -111,7 +107,7 @@ class AboutUsView extends GetView<AboutUsController> {
                     textScaleFactor: 1,
                     textAlign: TextAlign.justify,
                     style: TextStyle(
-                      color: Colors.white70,
+                      // color: Colors.white70,
                       fontSize: 17,
                       letterSpacing: 1,
                     ),
@@ -122,7 +118,7 @@ class AboutUsView extends GetView<AboutUsController> {
                     textScaleFactor: 1,
                     textAlign: TextAlign.justify,
                     style: TextStyle(
-                      color: Colors.white70,
+                      // color: Colors.white70,
                       fontSize: 17,
                       letterSpacing: 1,
                     ),
@@ -133,7 +129,7 @@ class AboutUsView extends GetView<AboutUsController> {
                     textScaleFactor: 1,
                     textAlign: TextAlign.justify,
                     style: TextStyle(
-                      color: Colors.white70,
+                      // color: Colors.white70,
                       fontSize: 17,
                       letterSpacing: 1,
                     ),
@@ -144,7 +140,40 @@ class AboutUsView extends GetView<AboutUsController> {
                     textScaleFactor: 1,
                     textAlign: TextAlign.justify,
                     style: TextStyle(
-                      color: Colors.white70,
+                      // color: Colors.white70,
+                      fontSize: 17,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                  SizedBox(height: 40),
+                  Text(
+                    "Vision & Mission",
+                    textScaleFactor: 1,
+                    style: TextStyle(
+                      color: Color(0xFFA41E34),
+                      fontSize: Get.width * .015,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.5,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "Vision of the college is to impart quality education to the girl students of this locality and to strengthen the women’s empowerment with an affordable admission fee and not charging any tuition fee. The aim of the college is to inculcate quality education in Arts, Science and Commerce to enhance the employability of the girl students and ultimately to engage the girl students in NSS activities to make them more sociable and committed to the society.",
+                    textScaleFactor: 1,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      // color: Colors.white70,
+                      fontSize: 17,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "The Mission of the college is to impart teaching in the class room both with the traditional and e-system and has adopted latest technology for the girls which will help them in their seminars and workshops. The career counselling cell has been constituted to counsel the students for various competitive examinations. The Mahavidyalaya plans to introduce skill-oriented coursers under U.G. programmes.",
+                    textScaleFactor: 1,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      // color: Colors.white70,
                       fontSize: 17,
                       letterSpacing: 1,
                     ),
@@ -159,7 +188,7 @@ class AboutUsView extends GetView<AboutUsController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    flex: 2,
+                    flex: 3,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -214,9 +243,10 @@ class AboutUsView extends GetView<AboutUsController> {
                     ),
                   ),
                   Expanded(
-                    flex: 3,
+                    flex: 5,
                     child: Container(
-                      padding: EdgeInsets.all(10),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -225,7 +255,7 @@ class AboutUsView extends GetView<AboutUsController> {
                             "Principal's Pen",
                             textScaleFactor: 1,
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Color(0xFFA41E34),
                               fontSize: Get.width * .015,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2,
@@ -237,7 +267,7 @@ class AboutUsView extends GetView<AboutUsController> {
                             textScaleFactor: 1,
                             textAlign: TextAlign.justify,
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontSize: Get.width * .011,
                               letterSpacing: 1,
                             ),
@@ -248,7 +278,7 @@ class AboutUsView extends GetView<AboutUsController> {
                             textScaleFactor: 1,
                             textAlign: TextAlign.justify,
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontSize: Get.width * .011,
                               letterSpacing: 1,
                             ),
@@ -260,132 +290,132 @@ class AboutUsView extends GetView<AboutUsController> {
                 ],
               ),
             ),
-            Container(
-              color: Colors.grey[400],
-              padding: EdgeInsets.all(20),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "History",
-                            textScaleFactor: 1,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: Get.width * .015,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1.5,
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            "The prestigious, Bajla family of Deoghar founded this college on 17th July-1962. The main objectives were women empowerment emancipation and self-depended. Since then, it never looked back and starting with 7(Seven) students now it has achieved a huge no of students that is more then 4000(Four thousand) by arduous effort, dedication and sincerity. Now the colleges known for its quality education, discipline and excellent culture. The academic environment is student-friendly, and the teaching members use computer aided technology and emphasizes an interactive learning process. They offer individual attention and support to students through counselling, tutorial and remedial classes. The faculty members are engaged in meaningful research and acclaimed publications and some of them have been invited by universities outside the state and also the country It is a premier institution of higher education specially for woman by imparting “Intermediate” and “Under Graduate” courses not only to the students of Deoghar but also of the whole Santhal Parganas.",
-                            textScaleFactor: 1,
-                            textAlign: TextAlign.justify,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: Get.width * .011,
-                              letterSpacing: 1,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Container(
-                          height: Get.height * .3,
-                          margin: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 10),
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/history.jpg"),
-                              fit: BoxFit.fill,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              color: Colors.grey,
-              padding: EdgeInsets.all(20),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Container(
-                          height: Get.height * .3,
-                          margin: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 10),
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/objective.jpg"),
-                              fit: BoxFit.fill,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Our Objective",
-                            textScaleFactor: 1,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: Get.width * .015,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1.5,
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            "Our objective is significantly to provide quality education in various fields so as to help all round development of the most backward students of the locality and free them from all kinds of hurdles. The student’s empowerment is made transparent in admission of students under the guide lines of the S.K.M.University. The college library purchases books and subscribes to various journals with the funds available for the student’s purpose. Previous year question papers in the form of question bank, syllabuses are kept in the library for student's reference. The career counselling cell has been constituted to counsel the students for various competitive examinations. The student's secure good marks in the university examination even some excel the other colleges in the university. Examinations are conducted as per the programme prepared by the University. Parents- Teachers – Students triangular meetings are held to assess the performance of the students. The Mahavidyalaya plans to introduce skill oriented coursers under U.G. programmes.",
-                            textScaleFactor: 1,
-                            textAlign: TextAlign.justify,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: Get.width * .011,
-                              letterSpacing: 1,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            // Container(
+            //   color: Colors.grey[400],
+            //   padding: EdgeInsets.all(20),
+            //   child: Row(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            //       Expanded(
+            //         flex: 4,
+            //         child: Container(
+            //           padding: EdgeInsets.all(10),
+            //           child: Column(
+            //             crossAxisAlignment: CrossAxisAlignment.start,
+            //             mainAxisAlignment: MainAxisAlignment.start,
+            //             children: [
+            //               Text(
+            //                 "History",
+            //                 textScaleFactor: 1,
+            //                 style: TextStyle(
+            //                   color: Colors.black,
+            //                   fontSize: Get.width * .015,
+            //                   fontWeight: FontWeight.bold,
+            //                   letterSpacing: 1.5,
+            //                 ),
+            //               ),
+            //               SizedBox(height: 10),
+            //               Text(
+            //                 "The prestigious, Bajla family of Deoghar founded this college on 17th July-1962. The main objectives were women empowerment emancipation and self-depended. Since then, it never looked back and starting with 7(Seven) students now it has achieved a huge no of students that is more then 4000(Four thousand) by arduous effort, dedication and sincerity. Now the colleges known for its quality education, discipline and excellent culture. The academic environment is student-friendly, and the teaching members use computer aided technology and emphasizes an interactive learning process. They offer individual attention and support to students through counselling, tutorial and remedial classes. The faculty members are engaged in meaningful research and acclaimed publications and some of them have been invited by universities outside the state and also the country It is a premier institution of higher education specially for woman by imparting “Intermediate” and “Under Graduate” courses not only to the students of Deoghar but also of the whole Santhal Parganas.",
+            //                 textScaleFactor: 1,
+            //                 textAlign: TextAlign.justify,
+            //                 style: TextStyle(
+            //                   color: Colors.black,
+            //                   fontSize: Get.width * .011,
+            //                   letterSpacing: 1,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //       Expanded(
+            //         flex: 2,
+            //         child: Column(
+            //           crossAxisAlignment: CrossAxisAlignment.stretch,
+            //           children: [
+            //             Container(
+            //               height: Get.height * .3,
+            //               margin: EdgeInsets.symmetric(
+            //                   vertical: 10, horizontal: 10),
+            //               padding: EdgeInsets.all(10),
+            //               decoration: BoxDecoration(
+            //                 image: DecorationImage(
+            //                   image: AssetImage("assets/history.jpg"),
+            //                   fit: BoxFit.fill,
+            //                 ),
+            //                 borderRadius: BorderRadius.circular(10),
+            //               ),
+            //             ),
+            //           ],
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // Container(
+            //   color: Colors.grey,
+            //   padding: EdgeInsets.all(20),
+            //   child: Row(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            //       Expanded(
+            //         flex: 2,
+            //         child: Column(
+            //           crossAxisAlignment: CrossAxisAlignment.stretch,
+            //           children: [
+            //             Container(
+            //               height: Get.height * .3,
+            //               margin: EdgeInsets.symmetric(
+            //                   vertical: 10, horizontal: 10),
+            //               padding: EdgeInsets.all(10),
+            //               decoration: BoxDecoration(
+            //                 image: DecorationImage(
+            //                   image: AssetImage("assets/objective.jpg"),
+            //                   fit: BoxFit.fill,
+            //                 ),
+            //                 borderRadius: BorderRadius.circular(10),
+            //               ),
+            //             ),
+            //           ],
+            //         ),
+            //       ),
+            //       Expanded(
+            //         flex: 4,
+            //         child: Container(
+            //           padding: EdgeInsets.all(10),
+            //           child: Column(
+            //             crossAxisAlignment: CrossAxisAlignment.start,
+            //             mainAxisAlignment: MainAxisAlignment.start,
+            //             children: [
+            //               Text(
+            //                 "Our Objective",
+            //                 textScaleFactor: 1,
+            //                 style: TextStyle(
+            //                   color: Colors.black,
+            //                   fontSize: Get.width * .015,
+            //                   fontWeight: FontWeight.bold,
+            //                   letterSpacing: 1.5,
+            //                 ),
+            //               ),
+            //               SizedBox(height: 10),
+            //               Text(
+            //                 "Our objective is significantly to provide quality education in various fields so as to help all round development of the most backward students of the locality and free them from all kinds of hurdles. The student’s empowerment is made transparent in admission of students under the guide lines of the S.K.M.University. The college library purchases books and subscribes to various journals with the funds available for the student’s purpose. Previous year question papers in the form of question bank, syllabuses are kept in the library for student's reference. The career counselling cell has been constituted to counsel the students for various competitive examinations. The student's secure good marks in the university examination even some excel the other colleges in the university. Examinations are conducted as per the programme prepared by the University. Parents- Teachers – Students triangular meetings are held to assess the performance of the students. The Mahavidyalaya plans to introduce skill oriented coursers under U.G. programmes.",
+            //                 textScaleFactor: 1,
+            //                 textAlign: TextAlign.justify,
+            //                 style: TextStyle(
+            //                   color: Colors.black,
+            //                   fontSize: Get.width * .011,
+            //                   letterSpacing: 1,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             // Container(
             //   color: Colors.grey[400],
             //   padding: EdgeInsets.all(20),

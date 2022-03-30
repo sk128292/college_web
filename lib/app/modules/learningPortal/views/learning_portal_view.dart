@@ -1,6 +1,8 @@
 import 'package:college_web/app/modules/widgets/footer.dart';
 import 'package:college_web/app/modules/widgets/menu_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 
 import 'package:get/get.dart';
 import 'dart:html' as html;
@@ -15,20 +17,17 @@ class LearningPortalView extends GetView<LearningPortalController> {
       appBar: AppBar(
         backgroundColor: Color(0xFFA41E34),
         leading: Padding(
-          padding: const EdgeInsets.only(left: 100, top: 15),
-          child: InkWell(
-            onTap: () {
-              controller.goToHomePage();
-            },
-            child: Text(
-              "RDBM Mahavidyalaya",
-              textScaleFactor: 1,
-              style: TextStyle(fontSize: 25),
-            ),
+          padding: const EdgeInsets.only(left: 100, top: 10),
+          child: Row(
+            children: [
+              Text("Phone: +91 9431548372, "),
+              SizedBox(width: 15),
+              Text("Email: principal@rdbmm.ac.in"),
+            ],
           ),
         ),
         automaticallyImplyLeading: false,
-        leadingWidth: 400,
+        leadingWidth: 500,
         actions: [
           SizedBox(width: 20),
           Row(
@@ -102,9 +101,15 @@ class LearningPortalView extends GetView<LearningPortalController> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        html.window.open(
-                            controller.learningPortalData[index].uploadBook,
-                            "_blank");
+                        controller.learningPortalData[index].uploadBook != null
+                            ? html.window.open(
+                                controller.learningPortalData[index].uploadBook
+                                    .toString(),
+                                "_blank")
+                            : html.window.open(
+                                controller.learningPortalData[index].youtubeUrl
+                                    .toString(),
+                                "_blank");
                       },
                       child: Container(
                         width: double.infinity,
@@ -127,7 +132,10 @@ class LearningPortalView extends GetView<LearningPortalController> {
                               controller.learningPortalData[index].title +
                                   ", " +
                                   controller
-                                      .learningPortalData[index].subjectCore,
+                                      .learningPortalData[index].subjectCore +
+                                  controller
+                                      .learningPortalData[index].uploadbook
+                                      .toString(),
                               // "Free Jobs Aleart, all over india",
                               textScaleFactor: 1,
                               style: TextStyle(

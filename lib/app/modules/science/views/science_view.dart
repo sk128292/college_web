@@ -1,6 +1,5 @@
 import 'package:college_web/app/modules/widgets/footer.dart';
 import 'package:college_web/app/modules/widgets/menu_bar_widget.dart';
-import 'package:college_web/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -14,20 +13,17 @@ class ScienceView extends GetView<ScienceController> {
       appBar: AppBar(
         backgroundColor: Color(0xFFA41E34),
         leading: Padding(
-          padding: const EdgeInsets.only(left: 100, top: 15),
-          child: InkWell(
-            onTap: () {
-              Get.toNamed(Routes.HOME);
-            },
-            child: Text(
-              "RDBM Mahavidyalaya",
-              textScaleFactor: 1,
-              style: TextStyle(fontSize: 25),
-            ),
+          padding: const EdgeInsets.only(left: 100, top: 10),
+          child: Row(
+            children: [
+              Text("Phone: +91 9431548372, "),
+              SizedBox(width: 15),
+              Text("Email: principal@rdbmm.ac.in"),
+            ],
           ),
         ),
         automaticallyImplyLeading: false,
-        leadingWidth: 400,
+        leadingWidth: 500,
         actions: [
           SizedBox(width: 20),
           Row(

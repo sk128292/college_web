@@ -57,7 +57,7 @@ class LearningPortalController extends GetxController {
       learningPortalResponse.value = data;
       learningPortalData.value = learningPortalResponse.value!.data!.toList();
 
-      print("hhh" + learningPortalData[0].title.toString());
+      print("hhh" + learningPortalData[0].uploadBook.toString());
     }
   }
 

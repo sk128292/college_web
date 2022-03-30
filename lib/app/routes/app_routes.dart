@@ -13,6 +13,8 @@ abstract class Routes {
   static const NAAC_IQAC = _Paths.NAAC_IQAC;
   static const DEPARTMENT = _Paths.DEPARTMENT;
   static const STUDENT_CORNER = _Paths.STUDENT_CORNER;
+  static const ACADEMIC = _Paths.ACADEMIC;
+  static const NOTIFICATION = _Paths.NOTIFICATION;
 }
 
 abstract class _Paths {
@@ -25,4 +27,6 @@ abstract class _Paths {
   static const NAAC_IQAC = '/naac-iqac';
   static const DEPARTMENT = '/department';
   static const STUDENT_CORNER = '/student-corner';
+  static const ACADEMIC = '/academic';
+  static const NOTIFICATION = '/notification';
 }

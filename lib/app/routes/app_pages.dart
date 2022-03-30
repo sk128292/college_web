@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import 'package:college_web/app/modules/aboutUs/bindings/about_us_binding.dart';
 import 'package:college_web/app/modules/aboutUs/views/about_us_view.dart';
+import 'package:college_web/app/modules/academic/bindings/academic_binding.dart';
+import 'package:college_web/app/modules/academic/views/academic_view.dart';
 import 'package:college_web/app/modules/art/bindings/art_binding.dart';
 import 'package:college_web/app/modules/art/views/art_view.dart';
 import 'package:college_web/app/modules/commerce/bindings/commerce_binding.dart';
@@ -14,6 +16,8 @@ import 'package:college_web/app/modules/learningPortal/bindings/learning_portal_
 import 'package:college_web/app/modules/learningPortal/views/learning_portal_view.dart';
 import 'package:college_web/app/modules/naacIqac/bindings/naac_iqac_binding.dart';
 import 'package:college_web/app/modules/naacIqac/views/naac_iqac_view.dart';
+import 'package:college_web/app/modules/notification/bindings/notification_binding.dart';
+import 'package:college_web/app/modules/notification/views/notification_view.dart';
 import 'package:college_web/app/modules/science/bindings/science_binding.dart';
 import 'package:college_web/app/modules/science/views/science_view.dart';
 import 'package:college_web/app/modules/studentCorner/bindings/student_corner_binding.dart';
@@ -71,6 +75,16 @@ class AppPages {
       name: _Paths.STUDENT_CORNER,
       page: () => StudentCornerView(),
       binding: StudentCornerBinding(),
+    ),
+    GetPage(
+      name: _Paths.ACADEMIC,
+      page: () => AcademicView(),
+      binding: AcademicBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION,
+      page: () => NotificationView(),
+      binding: NotificationBinding(),
     ),
   ];
 }

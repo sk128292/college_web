@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:college_web/app/modules/widgets/footer.dart';
 import 'package:college_web/app/modules/widgets/menu_bar_widget.dart';
 import 'package:college_web/app/routes/app_pages.dart';
@@ -10,81 +11,26 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
-import 'package:marquee/marquee.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFA41E34),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 100, top: 15),
-          child: InkWell(
-            onTap: () {
-              Get.toNamed(Routes.HOME);
-            },
-            child: Text(
-              "RDBM Mahavidyalaya",
-              textScaleFactor: 1,
-              style: TextStyle(fontSize: 25),
-            ),
-          ),
-        ),
-        automaticallyImplyLeading: false,
-        leadingWidth: 400,
-        actions: [
-          SizedBox(width: 20),
-          Row(
-            children: [
-              Row(
+    WidgetsBinding.instance!
+        .addPostFrameCallback((_) => controller.scrollToBottom());
+    final List<Widget> imageSliders = controller.imgList
+        .map((item) => Container(
+              child: Stack(
                 children: [
-                  Icon(Icons.login, size: 17),
-                  SizedBox(width: 5),
-                  Text(
-                    "Login",
-                    textScaleFactor: 1,
-                    style: TextStyle(fontSize: 15),
+                  Image(
+                    image: AssetImage(item),
+                    fit: BoxFit.cover,
+                    width: Get.width * .5,
+                    height: Get.height * .9,
                   ),
-                ],
-              ),
-              // SizedBox(width: 15),
-              // Row(
-              //   children: [
-              //     Icon(Icons.edit, size: 17),
-              //     SizedBox(width: 5),
-              //     Text(
-              //       "Signup",
-              //       textScaleFactor: 1,
-              //       style: TextStyle(fontSize: 15),
-              //     ),
-              //   ],
-              // ),
-              SizedBox(width: 40),
-            ],
-          )
-        ],
-        bottom: PreferredSize(
-            child: MenuBar(), preferredSize: Size.fromHeight(20.0)),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
-              children: [
-                Container(
-                  width: Get.width * .5,
-                  height: Get.height * .9,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/college1.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: Container(
+                  Container(
+                    width: Get.width * .5,
+                    height: Get.height * .9,
                     color: Colors.black.withOpacity(.5),
                     padding: EdgeInsets.only(bottom: 50),
                     child: Column(
@@ -138,7 +84,83 @@ class HomeView extends GetView<HomeController> {
                       ],
                     ),
                   ),
-                ),
+                ],
+              ),
+            ))
+        .toList();
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFA41E34),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 100, top: 10),
+          child: Row(
+            children: [
+              Text("Phone: +91 9431548372, "),
+              SizedBox(width: 15),
+              Text("Email: principal@rdbmm.ac.in"),
+            ],
+          ),
+        ),
+        automaticallyImplyLeading: false,
+        leadingWidth: 500,
+        actions: [
+          SizedBox(width: 20),
+          Row(
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.login, size: 17),
+                  SizedBox(width: 5),
+                  Text(
+                    "Login",
+                    textScaleFactor: 1,
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ],
+              ),
+              // SizedBox(width: 15),
+              // Row(
+              //   children: [
+              //     Icon(Icons.edit, size: 17),
+              //     SizedBox(width: 5),
+              //     Text(
+              //       "Signup",
+              //       textScaleFactor: 1,
+              //       style: TextStyle(fontSize: 15),
+              //     ),
+              //   ],
+              // ),
+              SizedBox(width: 40),
+            ],
+          )
+        ],
+        bottom: PreferredSize(
+            child: MenuBar(), preferredSize: Size.fromHeight(20.0)),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                Container(
+                    width: Get.width * .5,
+                    height: Get.height * .9,
+                    child: CarouselSlider(
+                      options: CarouselOptions(
+                        onPageChanged: (index, reason) {
+                          controller.currentPosition.value = index;
+                        },
+                        // aspectRatio: 2.5,
+                        viewportFraction: 1,
+                        autoPlay: true,
+                        autoPlayInterval: Duration(seconds: 5),
+                        autoPlayAnimationDuration: Duration(seconds: 1),
+                        autoPlayCurve: Curves.easeIn,
+                      ),
+                      items: imageSliders,
+                    )),
                 Container(
                   width: Get.width * .5,
                   height: Get.height * .9,
@@ -219,41 +241,64 @@ class HomeView extends GetView<HomeController> {
                           fontSize: 20,
                         ),
                       ),
-                      Container(
-                        padding: EdgeInsets.only(top: 10),
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(
-                              color: Color(0xFFA41E34),
-                              width: 2,
+                      InkWell(
+                        onTap: () {
+                          controller.goToNotificationPage();
+                        },
+                        child: Container(
+                          padding: EdgeInsets.only(top: 10),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color(0xFFA41E34),
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                          child: Text(
+                            "Click here for current updates and information.",
+                            textScaleFactor: 1,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              letterSpacing: 1,
+                              fontSize: 16,
                             ),
                           ),
                         ),
-                        child: Text(
-                          "Click here for current updates and information.",
-                          textScaleFactor: 1,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 1,
-                            fontSize: 16,
-                          ),
-                        ),
                       ),
-                      Container(
-                        width: Get.width,
-                        height: 50,
-                        padding: EdgeInsets.only(top: 20),
-                        child: Marquee(
-                          text: "Latest New Appear Here..",
-                          textScaleFactor: 1,
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 17,
-                          ),
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          blankSpace: 50.0,
-                          velocity: 50.0,
-                        ),
+                      Obx(
+                        () => controller.startLoading.isFalse
+                            ? Container(
+                                width: Get.width,
+                                height: 50,
+                                padding: EdgeInsets.only(top: 20),
+                                child: ListView.builder(
+                                  itemCount: controller.notificationData.length,
+                                  // itemCount: _listViewData.length,
+                                  controller: controller.scrollController,
+                                  scrollDirection: Axis.horizontal,
+                                  shrinkWrap: true,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20),
+                                      child: Text(
+                                        controller.notificationData[index].title
+                                            .toString()
+                                            .toUpperCase(),
+                                        style: TextStyle(
+                                          color: Colors.redAccent,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              )
+                            : Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.redAccent,
+                                ),
+                              ),
                       ),
                     ],
                   ),

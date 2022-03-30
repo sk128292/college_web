@@ -1,9 +1,9 @@
 import 'package:college_web/app/modules/widgets/footer.dart';
 import 'package:college_web/app/modules/widgets/menu_bar_widget.dart';
-import 'package:college_web/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'dart:html' as html;
 
 import '../controllers/student_corner_controller.dart';
 
@@ -15,20 +15,17 @@ class StudentCornerView extends GetView<StudentCornerController> {
       appBar: AppBar(
         backgroundColor: Color(0xFFA41E34),
         leading: Padding(
-          padding: const EdgeInsets.only(left: 100, top: 15),
-          child: InkWell(
-            onTap: () {
-              Get.toNamed(Routes.HOME);
-            },
-            child: Text(
-              "RDBM Mahavidhyalaya",
-              textScaleFactor: 1,
-              style: TextStyle(fontSize: 25),
-            ),
+          padding: const EdgeInsets.only(left: 100, top: 10),
+          child: Row(
+            children: [
+              Text("Phone: +91 9431548372,"),
+              SizedBox(width: 15),
+              Text("Email: principal@rdbmm.ac.in"),
+            ],
           ),
         ),
         automaticallyImplyLeading: false,
-        leadingWidth: 400,
+        leadingWidth: 500,
         actions: [
           SizedBox(width: 20),
           Row(
@@ -196,7 +193,11 @@ class StudentCornerView extends GetView<StudentCornerController> {
                                       itemBuilder: (context, index) {
                                         return InkWell(
                                           onTap: () {
-                                            // html.window.open("wwwww", "_blank");
+                                            html.window.open(
+                                                controller
+                                                    .learningPortalData[index]
+                                                    .uploadBook,
+                                                "_blank");
                                           },
                                           child: Card(
                                             margin: EdgeInsets.all(10),
@@ -226,123 +227,225 @@ class StudentCornerView extends GetView<StudentCornerController> {
                                     ),
                                   ],
                                 )
-                              // :
-                              // controller.selectedIndex == 1
-                              //     ? Column(
-                              //         children: [
-                              //           ListView.builder(
-                              //             shrinkWrap: true,
-                              //             itemCount: controller.science.length,
-                              //             itemBuilder: (context, index) {
-                              //               return InkWell(
-                              //                 onTap: () {
-                              //                   // html.window.open("wwwww", "_blank");
-                              //                 },
-                              //                 child: Card(
-                              //                   margin: EdgeInsets.all(10),
-                              //                   color: Colors.grey[200],
-                              //                   elevation: 5,
-                              //                   child: Padding(
-                              //                     padding: const EdgeInsets.all(
-                              //                         10.0),
-                              //                     child: Text(
-                              //                       controller.science[index]
-                              //                           .toString(),
-                              //                       style: TextStyle(
-                              //                         fontSize: 20,
-                              //                       ),
-                              //                     ),
-                              //                   ),
-                              //                 ),
-                              //               );
-                              //             },
-                              //           ),
-                              //         ],
-                              //       )
-                              //     : controller.selectedIndex == 2
-                              //         ? Column(
-                              //             children: [
-                              //               ListView.builder(
-                              //                 shrinkWrap: true,
-                              //                 itemCount:
-                              //                     controller.commerce.length,
-                              //                 itemBuilder: (context, index) {
-                              //                   return InkWell(
-                              //                     onTap: () {
-                              //                       // html.window.open("wwwww", "_blank");
-                              //                     },
-                              //                     child: Card(
-                              //                       margin: EdgeInsets.all(10),
-                              //                       color: Colors.grey[200],
-                              //                       elevation: 5,
-                              //                       child: Padding(
-                              //                         padding:
-                              //                             const EdgeInsets.all(
-                              //                                 10.0),
-                              //                         child: Text(
-                              //                           controller
-                              //                               .commerce[index]
-                              //                               .toString(),
-                              //                           style: TextStyle(
-                              //                             fontSize: 20,
-                              //                           ),
-                              //                         ),
-                              //                       ),
-                              //                     ),
-                              //                   );
-                              //                 },
-                              //               ),
-                              //             ],
-                              //           )
-                              //         : controller.selectedIndex == 3
-                              //             ? Column(
-                              //                 children: [
-                              //                   ListView.builder(
-                              //                     shrinkWrap: true,
-                              //                     itemCount: controller
-                              //                         .humanities.length,
-                              //                     itemBuilder:
-                              //                         (context, index) {
-                              //                       return InkWell(
-                              //                         onTap: () {
-                              //                           // html.window.open("wwwww", "_blank");
-                              //                         },
-                              //                         child: Card(
-                              //                           margin:
-                              //                               EdgeInsets.all(10),
-                              //                           color: Colors.grey[200],
-                              //                           elevation: 5,
-                              //                           child: Padding(
-                              //                             padding:
-                              //                                 const EdgeInsets
-                              //                                     .all(10.0),
-                              //                             child: Text(
-                              //                               controller
-                              //                                   .humanities[
-                              //                                       index]
-                              //                                   .toString(),
-                              //                               style: TextStyle(
-                              //                                 fontSize: 20,
-                              //                               ),
-                              //                             ),
-                              //                           ),
-                              //                         ),
-                              //                       );
-                              //                     },
-                              //                   ),
-                              //                 ],
-                              //               )
-                              : Container(
-                                  child: Center(
-                                    child: Text(
-                                      "No Data Available",
-                                      style: TextStyle(
-                                        fontSize: 40,
-                                        fontWeight: FontWeight.bold,
+                              : controller.selectedIndex == 1
+                                  ? Column(
+                                      children: [
+                                        Table(
+                                          columnWidths: {
+                                            0: FlexColumnWidth(1),
+                                            1: FlexColumnWidth(4),
+                                            2: FlexColumnWidth(1),
+                                          },
+                                          defaultVerticalAlignment:
+                                              TableCellVerticalAlignment.middle,
+                                          border: TableBorder.all(
+                                              color: Colors.black),
+                                          children: [
+                                            TableRow(
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.all(15),
+                                                  child: Text(
+                                                    "S No.",
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 22,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(15.0),
+                                                  child: Text(
+                                                    "Subject Name",
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 22,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(15.0),
+                                                  child: Text(
+                                                    "Download",
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 22,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        Table(
+                                          columnWidths: {
+                                            0: FlexColumnWidth(1),
+                                            1: FlexColumnWidth(4),
+                                            2: FlexColumnWidth(1),
+                                          },
+                                          defaultVerticalAlignment:
+                                              TableCellVerticalAlignment.middle,
+                                          border: TableBorder.all(
+                                              color: Colors.black),
+                                          children: List<TableRow>.generate(
+                                            controller.syllabus.length,
+                                            (index) {
+                                              return TableRow(
+                                                children: [
+                                                  Text(
+                                                      "${controller.syllabus[index].aqarSNo.toString()}.",
+                                                      textAlign:
+                                                          TextAlign.center),
+                                                  Text(
+                                                      controller.syllabus[index]
+                                                          .aqarParticular,
+                                                      textAlign:
+                                                          TextAlign.center),
+                                                  IconButton(
+                                                    onPressed: () {
+                                                      html.window.open(
+                                                          controller
+                                                              .syllabus[index]
+                                                              .aqarUpload
+                                                              .toString(),
+                                                          "_blank");
+                                                    },
+                                                    icon: Icon(
+                                                      Icons.picture_as_pdf,
+                                                      color: Color(0xFFA41E34),
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  :
+                                  // :
+                                  // controller.selectedIndex == 1
+                                  //     ? Column(
+                                  //         children: [
+                                  //           ListView.builder(
+                                  //             shrinkWrap: true,
+                                  //             itemCount: controller.science.length,
+                                  //             itemBuilder: (context, index) {
+                                  //               return InkWell(
+                                  //                 onTap: () {
+                                  //                   // html.window.open("wwwww", "_blank");
+                                  //                 },
+                                  //                 child: Card(
+                                  //                   margin: EdgeInsets.all(10),
+                                  //                   color: Colors.grey[200],
+                                  //                   elevation: 5,
+                                  //                   child: Padding(
+                                  //                     padding: const EdgeInsets.all(
+                                  //                         10.0),
+                                  //                     child: Text(
+                                  //                       controller.science[index]
+                                  //                           .toString(),
+                                  //                       style: TextStyle(
+                                  //                         fontSize: 20,
+                                  //                       ),
+                                  //                     ),
+                                  //                   ),
+                                  //                 ),
+                                  //               );
+                                  //             },
+                                  //           ),
+                                  //         ],
+                                  //       )
+                                  //     : controller.selectedIndex == 2
+                                  //         ? Column(
+                                  //             children: [
+                                  //               ListView.builder(
+                                  //                 shrinkWrap: true,
+                                  //                 itemCount:
+                                  //                     controller.commerce.length,
+                                  //                 itemBuilder: (context, index) {
+                                  //                   return InkWell(
+                                  //                     onTap: () {
+                                  //                       // html.window.open("wwwww", "_blank");
+                                  //                     },
+                                  //                     child: Card(
+                                  //                       margin: EdgeInsets.all(10),
+                                  //                       color: Colors.grey[200],
+                                  //                       elevation: 5,
+                                  //                       child: Padding(
+                                  //                         padding:
+                                  //                             const EdgeInsets.all(
+                                  //                                 10.0),
+                                  //                         child: Text(
+                                  //                           controller
+                                  //                               .commerce[index]
+                                  //                               .toString(),
+                                  //                           style: TextStyle(
+                                  //                             fontSize: 20,
+                                  //                           ),
+                                  //                         ),
+                                  //                       ),
+                                  //                     ),
+                                  //                   );
+                                  //                 },
+                                  //               ),
+                                  //             ],
+                                  //           )
+                                  //         : controller.selectedIndex == 3
+                                  //             ? Column(
+                                  //                 children: [
+                                  //                   ListView.builder(
+                                  //                     shrinkWrap: true,
+                                  //                     itemCount: controller
+                                  //                         .humanities.length,
+                                  //                     itemBuilder:
+                                  //                         (context, index) {
+                                  //                       return InkWell(
+                                  //                         onTap: () {
+                                  //                           // html.window.open("wwwww", "_blank");
+                                  //                         },
+                                  //                         child: Card(
+                                  //                           margin:
+                                  //                               EdgeInsets.all(10),
+                                  //                           color: Colors.grey[200],
+                                  //                           elevation: 5,
+                                  //                           child: Padding(
+                                  //                             padding:
+                                  //                                 const EdgeInsets
+                                  //                                     .all(10.0),
+                                  //                             child: Text(
+                                  //                               controller
+                                  //                                   .humanities[
+                                  //                                       index]
+                                  //                                   .toString(),
+                                  //                               style: TextStyle(
+                                  //                                 fontSize: 20,
+                                  //                               ),
+                                  //                             ),
+                                  //                           ),
+                                  //                         ),
+                                  //                       );
+                                  //                     },
+                                  //                   ),
+                                  //                 ],
+                                  //               )
+                                  Container(
+                                      child: Center(
+                                        child: Text(
+                                          "No Data Available",
+                                          style: TextStyle(
+                                            fontSize: 40,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
                         ),
                       ),
                     ),
