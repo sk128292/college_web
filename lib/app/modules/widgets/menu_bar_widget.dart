@@ -16,6 +16,11 @@ class _MenuBarState extends State<MenuBar> {
   Color color3 = Colors.white;
   Color color4 = Colors.white;
   Color color5 = Colors.white;
+  Color color6 = Colors.white;
+  Color color7 = Color(0xFFA41E34);
+  Color color8 = Color(0xFFA41E34);
+  Color color9 = Color(0xFFA41E34);
+  Color color10 = Color(0xFFA41E34);
 
   // showMenus(BuildContext context) async {
   //   await showMenu(
@@ -39,273 +44,469 @@ class _MenuBarState extends State<MenuBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          InkWell(
-            onTap: () {
-              Get.toNamed(Routes.HOME);
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(left: 90),
-              child: Text(
-                "RDBM Mahavidyalaya",
-                textScaleFactor: 1,
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.white,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        InkWell(
+          onTap: () {
+            Get.toNamed(Routes.HOME);
+          },
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                height: 130,
+                width: 170,
+                margin: EdgeInsets.only(top: 20, left: 30),
+                child: Image.asset("assets/logo.jpeg"),
+              ),
+              InkWell(
+                onTap: () {
+                  Get.toNamed(Routes.ABOUT_US);
+                },
+                child: Text(
+                  "RAMA DEVI BAJLA MAHILA \nMAHAVIDYALAYA, DEOGHAR",
+                  textScaleFactor: 1,
+                  style: TextStyle(
+                    fontSize: 22,
+                    color: Color(0xFFA41E34),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              MouseRegion(
-                onEnter: (event) {
-                  setState(() {
-                    color = Colors.green;
-                  });
-                },
-                onExit: (event) {
-                  setState(
-                    () {
-                      color = Colors.white;
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Container(
+              height: 60,
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+              decoration: BoxDecoration(
+                color: Color(0xFFA41E34),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        color = Colors.green;
+                      });
                     },
-                  );
-                },
-                child: InkWell(
-                  onTap: () {
-                    Get.toNamed(Routes.ABOUT_US);
-                  },
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.map,
-                        size: 17,
-                        color: color,
-                      ),
-                      SizedBox(width: 5),
-                      Text(
-                        "THE RDBMM",
+                    onExit: (event) {
+                      setState(
+                        () {
+                          color = Colors.white;
+                        },
+                      );
+                    },
+                    child: InkWell(
+                      onTap: () {
+                        // Get.toNamed(Routes.ABOUT_US);
+                      },
+                      child: Text(
+                        "ADMISSION",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 18,
                           color: color,
                         ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-              SizedBox(width: 20),
-              MouseRegion(
-                onEnter: (event) {
-                  setState(() {
-                    color1 = Colors.green;
-                  });
-                },
-                onExit: (event) {
-                  setState(
-                    () {
-                      color1 = Colors.white;
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    child: Container(
+                      height: 20,
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                  ),
+                  MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        color1 = Colors.green;
+                      });
                     },
-                  );
-                },
-                child: InkWell(
-                  onTap: () {
-                    Get.toNamed(Routes.NAAC_IQAC);
-                  },
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.edit,
-                        size: 17,
-                        color: color1,
-                      ),
-                      SizedBox(width: 5),
-                      Text(
-                        "NAAC & IQAC",
+                    onExit: (event) {
+                      setState(
+                        () {
+                          color1 = Colors.white;
+                        },
+                      );
+                    },
+                    child: InkWell(
+                      onTap: () {
+                        // Get.toNamed(Routes.ABOUT_US);
+                      },
+                      child: Text(
+                        "EXAMINATION",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 18,
                           color: color1,
                         ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-              SizedBox(width: 20),
-              MouseRegion(
-                onEnter: (event) {
-                  setState(() {
-                    color2 = Colors.green;
-                  });
-                },
-                onExit: (event) {
-                  setState(
-                    () {
-                      color2 = Colors.white;
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    child: Container(
+                      height: 20,
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                  ),
+                  MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        color2 = Colors.green;
+                      });
                     },
-                  );
-                },
-                child: InkWell(
-                  onTap: () {
-                    Get.toNamed(Routes.ACADEMIC);
-                  },
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.file_copy,
-                        size: 17,
-                        color: color2,
-                      ),
-                      SizedBox(width: 5),
-                      Text(
-                        "ACADEMICS",
+                    onExit: (event) {
+                      setState(
+                        () {
+                          color2 = Colors.white;
+                        },
+                      );
+                    },
+                    child: InkWell(
+                      onTap: () {
+                        // Get.toNamed(Routes.ABOUT_US);
+                      },
+                      child: Text(
+                        "FACILITIES",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 18,
                           color: color2,
                         ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-              SizedBox(width: 20),
-              MouseRegion(
-                onEnter: (event) {
-                  setState(() {
-                    color5 = Colors.green;
-                  });
-                },
-                onExit: (event) {
-                  setState(
-                    () {
-                      color5 = Colors.white;
-                    },
-                  );
-                },
-                child: InkWell(
-                  onTap: () {
-                    Get.toNamed(Routes.DEPARTMENT);
-                  },
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.apartment,
-                        size: 17,
-                        color: color5,
-                      ),
-                      SizedBox(width: 5),
-                      Text(
-                        "DEPARTMENTS",
-                        textScaleFactor: 1,
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: color5,
-                        ),
-                      ),
-                    ],
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    child: Container(
+                      height: 20,
+                      color: Colors.white,
+                      width: 2,
+                    ),
                   ),
-                ),
-              ),
-              // MouseRegion(
-              //   onEnter: (event) {
-              //     setState(() {
-              //       color3 = Colors.green;
-              //     });
-              //   },
-              //   onExit: (event) {
-              //     setState(
-              //       () {
-              //         color3 = Colors.white;
-              //       },
-              //     );
-              //   },
-              //   child: InkWell(
-              //     onTap: () {
-              //       Get.toNamed(Routes.LEARNING_PORTAL);
-              //     },
-              //     child: Row(
-              //       children: [
-              //         Icon(
-              //           Icons.mail,
-              //           size: 17,
-              //           color: color3,
-              //         ),
-              //         SizedBox(width: 5),
-              //         Text(
-              //           "E-LEARNING",
-              //           textScaleFactor: 1,
-              //           style: TextStyle(
-              //             fontSize: 15,
-              //             color: color3,
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              SizedBox(width: 20),
-              MouseRegion(
-                onEnter: (event) {
-                  setState(() {
-                    color4 = Colors.green;
-                  });
-                },
-                onExit: (event) {
-                  setState(
-                    () {
-                      color4 = Colors.white;
+                  MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        color3 = Colors.green;
+                      });
                     },
-                  );
-                },
-                child: InkWell(
-                  onTap: () {
-                    Get.toNamed(Routes.STUDENT_CORNER);
-                  },
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.book,
-                        size: 17,
-                        color: color4,
-                      ),
-                      SizedBox(width: 5),
-                      Text(
+                    onExit: (event) {
+                      setState(
+                        () {
+                          color3 = Colors.white;
+                        },
+                      );
+                    },
+                    child: InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.STUDENT_CORNER);
+                      },
+                      child: Text(
                         "STUDENT CORNER",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 18,
+                          color: color3,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    child: Container(
+                      height: 20,
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                  ),
+                  MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        color4 = Colors.green;
+                      });
+                    },
+                    onExit: (event) {
+                      setState(
+                        () {
+                          color4 = Colors.white;
+                        },
+                      );
+                    },
+                    child: InkWell(
+                      onTap: () {
+                        // Get.toNamed(Routes.ABOUT_US);
+                      },
+                      child: Text(
+                        "NEWS",
+                        textScaleFactor: 1,
+                        style: TextStyle(
+                          fontSize: 18,
                           color: color4,
                         ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    child: Container(
+                      height: 20,
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                  ),
+                  MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        color5 = Colors.green;
+                      });
+                    },
+                    onExit: (event) {
+                      setState(
+                        () {
+                          color5 = Colors.white;
+                        },
+                      );
+                    },
+                    child: InkWell(
+                      onTap: () {
+                        // Get.toNamed(Routes.ABOUT_US);
+                      },
+                      child: Text(
+                        "ALUMNI",
+                        textScaleFactor: 1,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: color5,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    child: Container(
+                      height: 20,
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                  ),
+                  MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        color6 = Colors.green;
+                      });
+                    },
+                    onExit: (event) {
+                      setState(
+                        () {
+                          color6 = Colors.white;
+                        },
+                      );
+                    },
+                    child: InkWell(
+                      onTap: () {
+                        // Get.toNamed(Routes.ABOUT_US);
+                      },
+                      child: Text(
+                        "CONTACT",
+                        textScaleFactor: 1,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: color6,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(width: 20),
-
-              // Row(
-              //   children: [
-              //     Icon(Icons.create, size: 17),
-              //     SizedBox(width: 5),
-              //     Text(
-              //       "SIGNUP",
-              //       textScaleFactor: 1,
-              //       style: TextStyle(fontSize: 15),
-              //     ),
-              //   ],
-              // ),
-            ],
-          ),
-        ],
-      ),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 30, right: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        color7 = Colors.green;
+                      });
+                    },
+                    onExit: (event) {
+                      setState(
+                        () {
+                          color7 = Color(0xFFA41E34);
+                        },
+                      );
+                    },
+                    child: InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.ABOUT_US);
+                      },
+                      child: Text(
+                        "THE RDBMM",
+                        textScaleFactor: 1,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: color7,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 15, right: 15),
+                    child: Container(
+                      height: 17,
+                      color: Color(0xFFA41E34),
+                      width: 2,
+                    ),
+                  ),
+                  MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        color8 = Colors.green;
+                      });
+                    },
+                    onExit: (event) {
+                      setState(
+                        () {
+                          color8 = Color(0xFFA41E34);
+                        },
+                      );
+                    },
+                    child: InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.ACADEMIC);
+                      },
+                      child: Text(
+                        "COLLEGE ADMINISTRATIVE",
+                        textScaleFactor: 1,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: color8,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 15, right: 15),
+                    child: Container(
+                      height: 17,
+                      color: Color(0xFFA41E34),
+                      width: 2,
+                    ),
+                  ),
+                  MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        color9 = Colors.green;
+                      });
+                    },
+                    onExit: (event) {
+                      setState(
+                        () {
+                          color9 = Color(0xFFA41E34);
+                        },
+                      );
+                    },
+                    child: InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.NAAC_IQAC);
+                      },
+                      child: Text(
+                        "NAAC & IQAC",
+                        textScaleFactor: 1,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: color9,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 15, right: 15),
+                    child: Container(
+                      height: 17,
+                      color: Color(0xFFA41E34),
+                      width: 2,
+                    ),
+                  ),
+                  MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        color10 = Colors.green;
+                      });
+                    },
+                    onExit: (event) {
+                      setState(
+                        () {
+                          color10 = Color(0xFFA41E34);
+                        },
+                      );
+                    },
+                    child: InkWell(
+                      onTap: () {
+                        // Get.toNamed(Routes.DEPARTMENT);
+                      },
+                      child: Text(
+                        "ACADEMICS",
+                        textScaleFactor: 1,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: color10,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 100),
+                  MaterialButton(
+                    color: Color(0xFFA41E34),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            "LOGIN",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Icon(
+                            Icons.login,
+                            color: Colors.white,
+                            size: 20,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

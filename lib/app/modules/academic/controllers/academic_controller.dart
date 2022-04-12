@@ -1,8 +1,11 @@
 import 'dart:convert';
 
+import 'package:college_web/app/data/model/academic_calender_model.dart';
 import 'package:college_web/app/data/model/academic_time_table_model.dart';
+import 'package:college_web/app/data/model/cbcs_rule_regulation_model.dart';
 import 'package:college_web/app/data/model/custom_academinc_model.dart';
 import 'package:college_web/app/data/model/fees_model.dart';
+import 'package:college_web/app/data/model/non_teaching_staff_model.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -12,6 +15,12 @@ class AcademicController extends GetxController {
   Rx<CustomAcademicModel?> customAcademicResponse =
       Rx<CustomAcademicModel?>(null);
   Rx<FeesModel?> feesResponse = Rx<FeesModel?>(null);
+  Rx<NonTeachingStaffModel?> nonTeachingStaffResponse =
+      Rx<NonTeachingStaffModel?>(null);
+  Rx<CbcsRuleRegulationModel?> cbcsRuleRegulationResponse =
+      Rx<CbcsRuleRegulationModel?>(null);
+  Rx<AcademicCalenderModel?> academicCalenderResponse =
+      Rx<AcademicCalenderModel?>(null);
   RxInt selectedIndex = 0.obs;
 
   RxList academicTimeTable = [].obs;
@@ -31,6 +40,10 @@ class AcademicController extends GetxController {
   RxList womenandSexualHarassmentCell = [].obs;
   RxList ecoClub = [].obs;
   RxList feesData = [].obs;
+  RxList nonTeachingStaffData = [].obs;
+  RxList cbcsRuleRegulationData = [].obs;
+  RxList academicCalenderData = [].obs;
+  RxList academicExellanceData = [].obs;
 
   List academics = [
     "College Officers",
@@ -292,6 +305,58 @@ class AcademicController extends GetxController {
     }
   }
 
+  Future getNonTeachingStaffData() async {
+    var response = await http.get(
+      Uri.parse("http://rdbmm.ac.in/academic/nonteachingstaff/"),
+    );
+    if (response.statusCode == 200) {
+      var resp = jsonDecode(response.body);
+      NonTeachingStaffModel data = NonTeachingStaffModel.fromJson(resp);
+      nonTeachingStaffResponse.value = data;
+      nonTeachingStaffData.value =
+          nonTeachingStaffResponse.value!.data!.toList();
+    }
+  }
+
+  Future getCbcsRuleRegulationData() async {
+    var response = await http.get(
+      Uri.parse("http://rdbmm.ac.in/academic/cbcscourcesRulesandregulations/"),
+    );
+    if (response.statusCode == 200) {
+      var resp = jsonDecode(response.body);
+      CbcsRuleRegulationModel data = CbcsRuleRegulationModel.fromJson(resp);
+      cbcsRuleRegulationResponse.value = data;
+      cbcsRuleRegulationData.value =
+          cbcsRuleRegulationResponse.value!.data!.toList();
+    }
+  }
+
+  Future getAcademicCalenderData() async {
+    var response = await http.get(
+      Uri.parse("http://rdbmm.ac.in/academic/academiccalendar/"),
+    );
+    if (response.statusCode == 200) {
+      var resp = jsonDecode(response.body);
+      AcademicCalenderModel data = AcademicCalenderModel.fromJson(resp);
+      academicCalenderResponse.value = data;
+      academicCalenderData.value =
+          academicCalenderResponse.value!.data!.toList();
+    }
+  }
+
+  Future getAcademicExcellanceData() async {
+    var response = await http.get(
+      Uri.parse("http://rdbmm.ac.in/academic/academiccexcelence/"),
+    );
+    if (response.statusCode == 200) {
+      var resp = jsonDecode(response.body);
+      AcademicCalenderModel data = AcademicCalenderModel.fromJson(resp);
+      academicCalenderResponse.value = data;
+      academicExellanceData.value =
+          academicCalenderResponse.value!.data!.toList();
+    }
+  }
+
   @override
   void onInit() {
     super.onInit();
@@ -312,6 +377,10 @@ class AcademicController extends GetxController {
     getWomenHarassmentCell();
     getEcoClub();
     getAcademicFees();
+    getNonTeachingStaffData();
+    getAcademicCalenderData();
+    getAcademicExcellanceData();
+    getCbcsRuleRegulationData();
   }
 
   @override

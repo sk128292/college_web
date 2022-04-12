@@ -11,52 +11,9 @@ class AboutUsView extends GetView<AboutUsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFA41E34),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 100, top: 10),
-          child: Row(
-            children: [
-              Text("Phone: +91 9431548372, "),
-              SizedBox(width: 15),
-              Text("Email: principal@rdbmm.ac.in"),
-            ],
-          ),
-        ),
-        automaticallyImplyLeading: false,
-        leadingWidth: 500,
-        actions: [
-          SizedBox(width: 20),
-          Row(
-            children: [
-              Row(
-                children: [
-                  Icon(Icons.login, size: 17),
-                  SizedBox(width: 5),
-                  Text(
-                    "Login",
-                    textScaleFactor: 1,
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ],
-              ),
-              // SizedBox(width: 15),
-              // Row(
-              //   children: [
-              //     Icon(Icons.edit, size: 17),
-              //     SizedBox(width: 5),
-              //     Text(
-              //       "Signup",
-              //       textScaleFactor: 1,
-              //       style: TextStyle(fontSize: 15),
-              //     ),
-              //   ],
-              // ),
-              SizedBox(width: 40),
-            ],
-          )
-        ],
+        backgroundColor: Colors.white,
         bottom: PreferredSize(
-            child: MenuBar(), preferredSize: Size.fromHeight(25.0)),
+            child: MenuBar(), preferredSize: Size.fromHeight(100.0)),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -103,7 +60,7 @@ class AboutUsView extends GetView<AboutUsController> {
                   ),
                   SizedBox(height: 15),
                   Text(
-                    "Rama Devi Bajla Mahila Mahavidyalaya is situated in the district of Deoghar. Deoghar town has its own importance as \"Deoghar\" means \"Abode of God\" whereLord Shiva resides in the form of one of the twelve Jyotirlings. Deoghar is famousfor the temple of Lord Shiva popularly known as Baba Baidyanath Dham all over India. It is also one of the most prominent tourist spots as it has an attractive natural setting in the midst of small hills like Trikuti, Nandan Pahar, Tapowan,Digaria Hills and a quite number of water resources",
+                    "Rama Devi Bajala Mahila Mahavidyalaya is the first institution of higher learning opened to cater to the educational needs of women in the district of Deoghar. The town is famous for the temple of Lord Shiva and is popularly known as Baba Baidyanath Dham all over India.",
                     textScaleFactor: 1,
                     textAlign: TextAlign.justify,
                     style: TextStyle(
@@ -114,7 +71,7 @@ class AboutUsView extends GetView<AboutUsController> {
                   ),
                   SizedBox(height: 15),
                   Text(
-                    "The Mahavidyalaya was established on 17th July 1962 with small number of girl students and with only one faculty – Faculty of Arts. The Mahavidyalaya has the teaching at Intermediate as well as at degree level from the very beginning. It has nine acres of land to its own credit which is basauri land situated in the heart of the town. The Mahavidyalaya is named after Smt. Rama Devi Bajla, wife of Late Durgaduttjee Bajla, a noted Business man who donated the land for this Mahavidyalaya. Since this area of Deoghar falls in backward area, the percentage of literates is not still up to the mark. ",
+                    "The institution encourages a progressive attitude towards learning, while keeping Indian tradition, culture and values in the foreground. Hundreds of motivated and empowered women have passed through the portals of this college and have entered various fields of life, many making a mark in our country and abroad.",
                     textScaleFactor: 1,
                     textAlign: TextAlign.justify,
                     style: TextStyle(
@@ -125,7 +82,7 @@ class AboutUsView extends GetView<AboutUsController> {
                   ),
                   SizedBox(height: 15),
                   Text(
-                    "The Mahavidyalaya was affiliated to Bhagalpur University, Bhagalpur on 1st June 1970 during the period of undivided Bihar. The Mahavidyalaya could got the stature of constituent college on 12th December 1980. The Mahavidyalaya was transferred to Sidho Kanhu Murmu University, Dumka in 1992, after the establishment of the said university on 10th January 1992 which is at present in the state of Jharkhand.",
+                    "The college was established on 17th July, 1962 and was affiliated to Bhagalpur University on 1st June, 1970. In the year 1980, a special status was given to it by the Government of Bihar and it became a ‘Constituent College’ of Bhagalpur University. The college was transferred to Sido Kanhu Murmu University, Dumka in 1992, after the establishment of the said university on 10th January, 1992 which at present is in the state of Jharkhand.",
                     textScaleFactor: 1,
                     textAlign: TextAlign.justify,
                     style: TextStyle(
@@ -136,7 +93,18 @@ class AboutUsView extends GetView<AboutUsController> {
                   ),
                   SizedBox(height: 15),
                   Text(
-                    "At present, the Mahavidyalaya has four faculties – Humanities, Social Science, Science and Commerce at degree level as well as three faculties—Arts, Commerce and Science at Intermediate level. The total number of students in this Mahavidyalaya is about 3800-4200 at present at Degree level. The number of students at Intermediate level is about 2400. The College has seven regular Department of Arts faculty since its establishment --- namely Hindi, English, Bengali, Sanskrit, Political Science, Economics and Philosophy. Students have ample opportunities to offer Honours in subject according to their choice which help them pursue for higher studies.",
+                    "At present, the Mahavidyalaya has four Faculties – Humanities, Social Science, Science and Commerce at degree level as well as three faculties – Arts, Science and Commerce at Intermediate level. The total number of Students in the Mahavidyalaya is about 3800 – 4200 at present at Degree level. The number of students at Intermediate level is bout 2400. The college has seven regular department of Arts faculty since its establishment – namely Hindi, English, Bengali, Sanskrit, Political Science, Economics and Philosophy. Students have ample opportunities to offer Honours in subject according to their choice which help them pursue for higher studies.",
+                    textScaleFactor: 1,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      // color: Colors.white70,
+                      fontSize: 17,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                  Text(
+                    "The college whose hallmark has always been Quality and Excellence, has been accredited by NAAC with ‘B’ grade in the first cycle with CGPA 2.28 in 2017.",
                     textScaleFactor: 1,
                     textAlign: TextAlign.justify,
                     style: TextStyle(

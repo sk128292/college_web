@@ -11,52 +11,11 @@ class ScienceView extends GetView<ScienceController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFA41E34),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 100, top: 10),
-          child: Row(
-            children: [
-              Text("Phone: +91 9431548372, "),
-              SizedBox(width: 15),
-              Text("Email: principal@rdbmm.ac.in"),
-            ],
-          ),
-        ),
-        automaticallyImplyLeading: false,
-        leadingWidth: 500,
-        actions: [
-          SizedBox(width: 20),
-          Row(
-            children: [
-              Row(
-                children: [
-                  Icon(Icons.login, size: 17),
-                  SizedBox(width: 5),
-                  Text(
-                    "Login",
-                    textScaleFactor: 1,
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ],
-              ),
-              // SizedBox(width: 15),
-              // Row(
-              //   children: [
-              //     Icon(Icons.edit, size: 17),
-              //     SizedBox(width: 5),
-              //     Text(
-              //       "Signup",
-              //       textScaleFactor: 1,
-              //       style: TextStyle(fontSize: 15),
-              //     ),
-              //   ],
-              // ),
-              SizedBox(width: 40),
-            ],
-          )
-        ],
+        backgroundColor: Colors.white,
         bottom: PreferredSize(
-            child: MenuBar(), preferredSize: Size.fromHeight(20.0)),
+          child: MenuBar(),
+          preferredSize: Size.fromHeight(100),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

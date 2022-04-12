@@ -14,52 +14,52 @@ class AcademicView extends GetView<AcademicController> {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
-        backgroundColor: Color(0xFFA41E34),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 100, top: 10),
-          child: Row(
-            children: [
-              Text("Phone: +91 9431548372, "),
-              SizedBox(width: 15),
-              Text("Email: principal@rdbmm.ac.in"),
-            ],
-          ),
-        ),
-        automaticallyImplyLeading: false,
-        leadingWidth: 500,
-        actions: [
-          SizedBox(width: 20),
-          Row(
-            children: [
-              Row(
-                children: [
-                  Icon(Icons.login, size: 17),
-                  SizedBox(width: 5),
-                  Text(
-                    "Login",
-                    textScaleFactor: 1,
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ],
-              ),
-              // SizedBox(width: 15),
-              // Row(
-              //   children: [
-              //     Icon(Icons.edit, size: 17),
-              //     SizedBox(width: 5),
-              //     Text(
-              //       "Signup",
-              //       textScaleFactor: 1,
-              //       style: TextStyle(fontSize: 15),
-              //     ),
-              //   ],
-              // ),
-              SizedBox(width: 40),
-            ],
-          )
-        ],
+        backgroundColor: Colors.white,
+        // leading: Padding(
+        //   padding: const EdgeInsets.only(left: 100, top: 10),
+        //   child: Row(
+        //     children: [
+        //       Text("Phone: +91 9431548372, "),
+        //       SizedBox(width: 15),
+        //       Text("Email: principal@rdbmm.ac.in"),
+        //     ],
+        //   ),
+        // ),
+        // automaticallyImplyLeading: false,
+        // leadingWidth: 500,
+        // actions: [
+        //   SizedBox(width: 20),
+        //   Row(
+        //     children: [
+        //       Row(
+        //         children: [
+        //           Icon(Icons.login, size: 17),
+        //           SizedBox(width: 5),
+        //           Text(
+        //             "Login",
+        //             textScaleFactor: 1,
+        //             style: TextStyle(fontSize: 15),
+        //           ),
+        //         ],
+        //       ),
+        //       // SizedBox(width: 15),
+        //       // Row(
+        //       //   children: [
+        //       //     Icon(Icons.edit, size: 17),
+        //       //     SizedBox(width: 5),
+        //       //     Text(
+        //       //       "Signup",
+        //       //       textScaleFactor: 1,
+        //       //       style: TextStyle(fontSize: 15),
+        //       //     ),
+        //       //   ],
+        //       // ),
+        //       SizedBox(width: 40),
+        //     ],
+        //   )
+        // ],
         bottom: PreferredSize(
-            child: MenuBar(), preferredSize: Size.fromHeight(20.0)),
+            child: MenuBar(), preferredSize: Size.fromHeight(100.0)),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -903,14 +903,15 @@ class AcademicView extends GetView<AcademicController> {
                                                                                             },
                                                                                           ),
                                                                                         )
-                                                                                      : controller.selectedIndex == 16
+                                                                                      : controller.selectedIndex == 15
                                                                                           ? Column(
                                                                                               children: [
                                                                                                 Table(
                                                                                                   columnWidths: {
-                                                                                                    0: FlexColumnWidth(3),
+                                                                                                    0: FlexColumnWidth(1),
                                                                                                     1: FlexColumnWidth(2),
                                                                                                     2: FlexColumnWidth(2),
+                                                                                                    3: FlexColumnWidth(2),
                                                                                                   },
                                                                                                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                                                                                                   border: TableBorder.all(color: Colors.black),
@@ -920,7 +921,18 @@ class AcademicView extends GetView<AcademicController> {
                                                                                                         Padding(
                                                                                                           padding: EdgeInsets.all(15),
                                                                                                           child: Text(
-                                                                                                            "Departmment",
+                                                                                                            "SNo",
+                                                                                                            textAlign: TextAlign.center,
+                                                                                                            style: TextStyle(
+                                                                                                              fontWeight: FontWeight.bold,
+                                                                                                              fontSize: 22,
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        Padding(
+                                                                                                          padding: EdgeInsets.all(15),
+                                                                                                          child: Text(
+                                                                                                            "Name",
                                                                                                             textAlign: TextAlign.center,
                                                                                                             style: TextStyle(
                                                                                                               fontWeight: FontWeight.bold,
@@ -931,7 +943,7 @@ class AcademicView extends GetView<AcademicController> {
                                                                                                         Padding(
                                                                                                           padding: EdgeInsets.all(15.0),
                                                                                                           child: Text(
-                                                                                                            "Faculty Time Table",
+                                                                                                            "Concern Work",
                                                                                                             textAlign: TextAlign.center,
                                                                                                             style: TextStyle(
                                                                                                               fontWeight: FontWeight.bold,
@@ -942,7 +954,7 @@ class AcademicView extends GetView<AcademicController> {
                                                                                                         Padding(
                                                                                                           padding: EdgeInsets.all(15.0),
                                                                                                           child: Text(
-                                                                                                            "Class Time Table",
+                                                                                                            "Mobile Number",
                                                                                                             textAlign: TextAlign.center,
                                                                                                             style: TextStyle(
                                                                                                               fontWeight: FontWeight.bold,
@@ -956,38 +968,33 @@ class AcademicView extends GetView<AcademicController> {
                                                                                                 ),
                                                                                                 Table(
                                                                                                   columnWidths: {
-                                                                                                    0: FlexColumnWidth(3),
+                                                                                                    0: FlexColumnWidth(1),
                                                                                                     1: FlexColumnWidth(2),
                                                                                                     2: FlexColumnWidth(2),
+                                                                                                    3: FlexColumnWidth(2),
                                                                                                   },
                                                                                                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                                                                                                   border: TableBorder.all(color: Colors.black),
                                                                                                   children: List<TableRow>.generate(
-                                                                                                    controller.academicTimeTable.length,
+                                                                                                    controller.nonTeachingStaffData.length,
                                                                                                     (index) {
                                                                                                       return TableRow(
                                                                                                         children: [
-                                                                                                          Text(
-                                                                                                            controller.academicTimeTable[index].title.toString(),
-                                                                                                            textAlign: TextAlign.center,
+                                                                                                          Padding(
+                                                                                                            padding: const EdgeInsets.all(10.0),
+                                                                                                            child: Text(controller.nonTeachingStaffData[index].sNo.toString(), textAlign: TextAlign.center),
                                                                                                           ),
-                                                                                                          IconButton(
-                                                                                                            onPressed: () {
-                                                                                                              html.window.open(controller.academicTimeTable[index].facultyTimetable.toString(), "_blank");
-                                                                                                            },
-                                                                                                            icon: Icon(
-                                                                                                              Icons.picture_as_pdf,
-                                                                                                              color: Color(0xFFA41E34),
-                                                                                                            ),
+                                                                                                          Padding(
+                                                                                                            padding: const EdgeInsets.all(10.0),
+                                                                                                            child: Text(controller.nonTeachingStaffData[index].name.toString(), textAlign: TextAlign.center),
                                                                                                           ),
-                                                                                                          IconButton(
-                                                                                                            onPressed: () {
-                                                                                                              html.window.open(controller.academicTimeTable[index].classTimetable.toString(), "_blank");
-                                                                                                            },
-                                                                                                            icon: Icon(
-                                                                                                              Icons.picture_as_pdf,
-                                                                                                              color: Color(0xFFA41E34),
-                                                                                                            ),
+                                                                                                          Padding(
+                                                                                                            padding: const EdgeInsets.all(10.0),
+                                                                                                            child: Text(controller.nonTeachingStaffData[index].concernWork.toString(), textAlign: TextAlign.center),
+                                                                                                          ),
+                                                                                                          Padding(
+                                                                                                            padding: const EdgeInsets.all(10.0),
+                                                                                                            child: Text(controller.nonTeachingStaffData[index].mobileNumber.toString(), textAlign: TextAlign.center),
                                                                                                           ),
                                                                                                         ],
                                                                                                       );
@@ -996,46 +1003,188 @@ class AcademicView extends GetView<AcademicController> {
                                                                                                 ),
                                                                                               ],
                                                                                             )
-                                                                                          :
-                                                                                          // : controller.selectedIndex == 20
-                                                                                          //     ? CustomFeeTable(
-                                                                                          //         table: List<TableRow>.generate(
-                                                                                          //           controller.feesData.length,
-                                                                                          //           (index) {
-                                                                                          //             return TableRow(
-                                                                                          //               children: [
-                                                                                          //                 Padding(
-                                                                                          //                   padding: const EdgeInsets.all(10.0),
-                                                                                          //                   child: Text(controller.feesData[index].sNo.toString(), textAlign: TextAlign.center),
-                                                                                          //                 ),
-                                                                                          //                 Padding(
-                                                                                          //                   padding: const EdgeInsets.all(10.0),
-                                                                                          //                   child: Text(controller.feesData[index].particulars.toString(), textAlign: TextAlign.center),
-                                                                                          //                 ),
-                                                                                          //                 Padding(
-                                                                                          //                   padding: const EdgeInsets.all(10.0),
-                                                                                          //                   child: Text(controller.feesData[index].stream.toString(), textAlign: TextAlign.center),
-                                                                                          //                 ),
-                                                                                          //                 Padding(
-                                                                                          //                   padding: const EdgeInsets.all(10.0),
-                                                                                          //                   child: Text(controller.feesData[index].fee.toString(), textAlign: TextAlign.center),
-                                                                                          //                 ),
-                                                                                          //               ],
-                                                                                          //             );
-                                                                                          //           },
-                                                                                          //         ),
-                                                                                          //       )
-                                                                                          Container(
-                                                                                              child: Center(
-                                                                                                child: Text(
-                                                                                                  "No Data Available",
-                                                                                                  style: TextStyle(
-                                                                                                    fontSize: 40,
-                                                                                                    fontWeight: FontWeight.bold,
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
+                                                                                          : controller.selectedIndex == 16
+                                                                                              ? Column(
+                                                                                                  children: [
+                                                                                                    Table(
+                                                                                                      columnWidths: {
+                                                                                                        0: FlexColumnWidth(3),
+                                                                                                        1: FlexColumnWidth(2),
+                                                                                                        2: FlexColumnWidth(2),
+                                                                                                      },
+                                                                                                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                                                                                      border: TableBorder.all(color: Colors.black),
+                                                                                                      children: [
+                                                                                                        TableRow(
+                                                                                                          children: [
+                                                                                                            Padding(
+                                                                                                              padding: EdgeInsets.all(15),
+                                                                                                              child: Text(
+                                                                                                                "Departmment",
+                                                                                                                textAlign: TextAlign.center,
+                                                                                                                style: TextStyle(
+                                                                                                                  fontWeight: FontWeight.bold,
+                                                                                                                  fontSize: 22,
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                            Padding(
+                                                                                                              padding: EdgeInsets.all(15.0),
+                                                                                                              child: Text(
+                                                                                                                "Faculty Time Table",
+                                                                                                                textAlign: TextAlign.center,
+                                                                                                                style: TextStyle(
+                                                                                                                  fontWeight: FontWeight.bold,
+                                                                                                                  fontSize: 22,
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                            Padding(
+                                                                                                              padding: EdgeInsets.all(15.0),
+                                                                                                              child: Text(
+                                                                                                                "Class Time Table",
+                                                                                                                textAlign: TextAlign.center,
+                                                                                                                style: TextStyle(
+                                                                                                                  fontWeight: FontWeight.bold,
+                                                                                                                  fontSize: 22,
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                          ],
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                    Table(
+                                                                                                      columnWidths: {
+                                                                                                        0: FlexColumnWidth(3),
+                                                                                                        1: FlexColumnWidth(2),
+                                                                                                        2: FlexColumnWidth(2),
+                                                                                                      },
+                                                                                                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                                                                                      border: TableBorder.all(color: Colors.black),
+                                                                                                      children: List<TableRow>.generate(
+                                                                                                        controller.academicTimeTable.length,
+                                                                                                        (index) {
+                                                                                                          return TableRow(
+                                                                                                            children: [
+                                                                                                              Text(
+                                                                                                                controller.academicTimeTable[index].title.toString(),
+                                                                                                                textAlign: TextAlign.center,
+                                                                                                              ),
+                                                                                                              IconButton(
+                                                                                                                onPressed: () {
+                                                                                                                  html.window.open(controller.academicTimeTable[index].facultyTimetable.toString(), "_blank");
+                                                                                                                },
+                                                                                                                icon: Icon(
+                                                                                                                  Icons.picture_as_pdf,
+                                                                                                                  color: Color(0xFFA41E34),
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                              IconButton(
+                                                                                                                onPressed: () {
+                                                                                                                  html.window.open(controller.academicTimeTable[index].classTimetable.toString(), "_blank");
+                                                                                                                },
+                                                                                                                icon: Icon(
+                                                                                                                  Icons.picture_as_pdf,
+                                                                                                                  color: Color(0xFFA41E34),
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          );
+                                                                                                        },
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ],
+                                                                                                )
+                                                                                              : controller.selectedIndex == 17
+                                                                                                  ? ListView.builder(
+                                                                                                      shrinkWrap: true,
+                                                                                                      itemCount: controller.academicCalenderData.length,
+                                                                                                      itemBuilder: (context, index) {
+                                                                                                        return InkWell(
+                                                                                                          onTap: () {
+                                                                                                            html.window.open(controller.academicCalenderData[index].calendarFile.toString(), "_blank");
+                                                                                                          },
+                                                                                                          child: Card(
+                                                                                                            margin: EdgeInsets.all(10),
+                                                                                                            color: Colors.grey[200],
+                                                                                                            elevation: 5,
+                                                                                                            child: Padding(
+                                                                                                              padding: const EdgeInsets.all(10.0),
+                                                                                                              child: Text(
+                                                                                                                controller.academicCalenderData[index].title.toString(),
+                                                                                                                style: TextStyle(
+                                                                                                                  fontSize: 20,
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    )
+                                                                                                  : controller.selectedIndex == 18
+                                                                                                      ? ListView.builder(
+                                                                                                          shrinkWrap: true,
+                                                                                                          itemCount: controller.academicExellanceData.length,
+                                                                                                          itemBuilder: (context, index) {
+                                                                                                            return InkWell(
+                                                                                                              onTap: () {
+                                                                                                                html.window.open(controller.academicExellanceData[index].calendarFile.toString(), "_blank");
+                                                                                                              },
+                                                                                                              child: Card(
+                                                                                                                margin: EdgeInsets.all(10),
+                                                                                                                color: Colors.grey[200],
+                                                                                                                elevation: 5,
+                                                                                                                child: Padding(
+                                                                                                                  padding: const EdgeInsets.all(10.0),
+                                                                                                                  child: Text(
+                                                                                                                    controller.academicExellanceData[index].title.toString(),
+                                                                                                                    style: TextStyle(
+                                                                                                                      fontSize: 20,
+                                                                                                                    ),
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            );
+                                                                                                          },
+                                                                                                        )
+                                                                                                      : controller.selectedIndex == 20
+                                                                                                          ? ListView.builder(
+                                                                                                              shrinkWrap: true,
+                                                                                                              itemCount: controller.cbcsRuleRegulationData.length,
+                                                                                                              itemBuilder: (context, index) {
+                                                                                                                return InkWell(
+                                                                                                                  onTap: () {
+                                                                                                                    html.window.open(controller.cbcsRuleRegulationData[index].calendarFile.toString(), "_blank");
+                                                                                                                  },
+                                                                                                                  child: Card(
+                                                                                                                    margin: EdgeInsets.all(10),
+                                                                                                                    color: Colors.grey[200],
+                                                                                                                    elevation: 5,
+                                                                                                                    child: Padding(
+                                                                                                                      padding: const EdgeInsets.all(10.0),
+                                                                                                                      child: Text(
+                                                                                                                        controller.cbcsRuleRegulationData[index].title.toString(),
+                                                                                                                        style: TextStyle(
+                                                                                                                          fontSize: 20,
+                                                                                                                        ),
+                                                                                                                      ),
+                                                                                                                    ),
+                                                                                                                  ),
+                                                                                                                );
+                                                                                                              },
+                                                                                                            )
+                                                                                                          : Container(
+                                                                                                              child: Center(
+                                                                                                                child: Text(
+                                                                                                                  "No Data Available",
+                                                                                                                  style: TextStyle(
+                                                                                                                    fontSize: 40,
+                                                                                                                    fontWeight: FontWeight.bold,
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ),
                         ),
                       ),
                     ),
