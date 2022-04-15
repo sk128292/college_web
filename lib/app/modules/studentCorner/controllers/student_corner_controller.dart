@@ -8,20 +8,16 @@ class StudentCornerController extends GetxController {
   Rx<LearningPortalModel?> learningPortalResponse =
       Rx<LearningPortalModel?>(null);
   RxInt selectedIndex = 0.obs;
+
   RxList learningPortalData = [].obs;
   RxList syllabus = [].obs;
 
   List studentCornerData = [
     "E-learning Resources",
-    "Syllabus",
-    "Admission",
-    "Admit Card & Result",
+    "Scholarship",
     "CLC Certificate",
     "Bonafied Certificate",
     "Transfer Certificate",
-    "Fee Structure UG Admission",
-    "Fee Structure 11th & 12th Admission",
-    "Prospectus",
   ];
 
   void changeIndex(index) {

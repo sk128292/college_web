@@ -15,6 +15,10 @@ abstract class Routes {
   static const STUDENT_CORNER = _Paths.STUDENT_CORNER;
   static const ACADEMIC = _Paths.ACADEMIC;
   static const NOTIFICATION = _Paths.NOTIFICATION;
+  static const COLLEGE_ADMINISTRATIVE = _Paths.COLLEGE_ADMINISTRATIVE;
+  static const FACILITIES = _Paths.FACILITIES;
+  static const ADMISSION = _Paths.ADMISSION;
+  static const EXAMINATION = _Paths.EXAMINATION;
 }
 
 abstract class _Paths {
@@ -29,4 +33,8 @@ abstract class _Paths {
   static const STUDENT_CORNER = '/student-corner';
   static const ACADEMIC = '/academic';
   static const NOTIFICATION = '/notification';
+  static const COLLEGE_ADMINISTRATIVE = '/college-administrative';
+  static const FACILITIES = '/facilities';
+  static const ADMISSION = '/admission';
+  static const EXAMINATION = '/examination';
 }

@@ -4,12 +4,20 @@ import 'package:college_web/app/modules/aboutUs/bindings/about_us_binding.dart';
 import 'package:college_web/app/modules/aboutUs/views/about_us_view.dart';
 import 'package:college_web/app/modules/academic/bindings/academic_binding.dart';
 import 'package:college_web/app/modules/academic/views/academic_view.dart';
+import 'package:college_web/app/modules/admission/bindings/admission_binding.dart';
+import 'package:college_web/app/modules/admission/views/admission_view.dart';
 import 'package:college_web/app/modules/art/bindings/art_binding.dart';
 import 'package:college_web/app/modules/art/views/art_view.dart';
+import 'package:college_web/app/modules/collegeAdministrative/bindings/college_administrative_binding.dart';
+import 'package:college_web/app/modules/collegeAdministrative/views/college_administrative_view.dart';
 import 'package:college_web/app/modules/commerce/bindings/commerce_binding.dart';
 import 'package:college_web/app/modules/commerce/views/commerce_view.dart';
 import 'package:college_web/app/modules/department/bindings/department_binding.dart';
 import 'package:college_web/app/modules/department/views/department_view.dart';
+import 'package:college_web/app/modules/examination/bindings/examination_binding.dart';
+import 'package:college_web/app/modules/examination/views/examination_view.dart';
+import 'package:college_web/app/modules/facilities/bindings/facilities_binding.dart';
+import 'package:college_web/app/modules/facilities/views/facilities_view.dart';
 import 'package:college_web/app/modules/home/bindings/home_binding.dart';
 import 'package:college_web/app/modules/home/views/home_view.dart';
 import 'package:college_web/app/modules/learningPortal/bindings/learning_portal_binding.dart';
@@ -85,6 +93,26 @@ class AppPages {
       name: _Paths.NOTIFICATION,
       page: () => NotificationView(),
       binding: NotificationBinding(),
+    ),
+    GetPage(
+      name: _Paths.COLLEGE_ADMINISTRATIVE,
+      page: () => CollegeAdministrativeView(),
+      binding: CollegeAdministrativeBinding(),
+    ),
+    GetPage(
+      name: _Paths.FACILITIES,
+      page: () => FacilitiesView(),
+      binding: FacilitiesBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMISSION,
+      page: () => AdmissionView(),
+      binding: AdmissionBinding(),
+    ),
+    GetPage(
+      name: _Paths.EXAMINATION,
+      page: () => ExaminationView(),
+      binding: ExaminationBinding(),
     ),
   ];
 }

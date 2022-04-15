@@ -108,7 +108,7 @@ class _MenuBarState extends State<MenuBar> {
                     },
                     child: InkWell(
                       onTap: () {
-                        // Get.toNamed(Routes.ABOUT_US);
+                        Get.toNamed(Routes.ADMISSION);
                       },
                       child: Text(
                         "ADMISSION",
@@ -143,7 +143,7 @@ class _MenuBarState extends State<MenuBar> {
                     },
                     child: InkWell(
                       onTap: () {
-                        // Get.toNamed(Routes.ABOUT_US);
+                        Get.toNamed(Routes.EXAMINATION);
                       },
                       child: Text(
                         "EXAMINATION",
@@ -178,7 +178,7 @@ class _MenuBarState extends State<MenuBar> {
                     },
                     child: InkWell(
                       onTap: () {
-                        // Get.toNamed(Routes.ABOUT_US);
+                        Get.toNamed(Routes.FACILITIES);
                       },
                       child: Text(
                         "FACILITIES",
@@ -388,7 +388,7 @@ class _MenuBarState extends State<MenuBar> {
                     },
                     child: InkWell(
                       onTap: () {
-                        Get.toNamed(Routes.ACADEMIC);
+                        Get.toNamed(Routes.COLLEGE_ADMINISTRATIVE);
                       },
                       child: Text(
                         "COLLEGE ADMINISTRATIVE",
@@ -458,7 +458,7 @@ class _MenuBarState extends State<MenuBar> {
                     },
                     child: InkWell(
                       onTap: () {
-                        // Get.toNamed(Routes.DEPARTMENT);
+                        Get.toNamed(Routes.ACADEMIC);
                       },
                       child: Text(
                         "ACADEMICS",
