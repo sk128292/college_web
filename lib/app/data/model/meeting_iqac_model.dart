@@ -25,34 +25,51 @@ class MeetingIqacModel {
 }
 
 class Data {
-  int? id;
-  int? meetingNo;
-  String? heldOn;
-  String? minutesOfIqacMeetingFile;
-  String? iqacMinutesOfMeetingName;
+  String? sessionyearmodel;
+  List<IqacMinutesOfIqacMeeting>? iqacMinutesOfIqacMeeting;
 
-  Data(
-      {this.id,
-      this.meetingNo,
-      this.heldOn,
-      this.minutesOfIqacMeetingFile,
-      this.iqacMinutesOfMeetingName});
+  Data({this.sessionyearmodel, this.iqacMinutesOfIqacMeeting});
 
   Data.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    meetingNo = json['meetingNo'];
-    heldOn = json['heldOn'];
-    minutesOfIqacMeetingFile = json['minutesOfIqacMeetingFile'];
-    iqacMinutesOfMeetingName = json['iqacMinutesOfMeetingName'];
+    sessionyearmodel = json['sessionyearmodel'];
+    if (json['iqacMinutesOfIqacMeeting'] != null) {
+      iqacMinutesOfIqacMeeting = <IqacMinutesOfIqacMeeting>[];
+      json['iqacMinutesOfIqacMeeting'].forEach((v) {
+        iqacMinutesOfIqacMeeting!.add(new IqacMinutesOfIqacMeeting.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
+    data['sessionyearmodel'] = this.sessionyearmodel;
+    if (this.iqacMinutesOfIqacMeeting != null) {
+      data['iqacMinutesOfIqacMeeting'] =
+          this.iqacMinutesOfIqacMeeting!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class IqacMinutesOfIqacMeeting {
+  int? meetingNo;
+  String? heldOn;
+  String? minutesOfIqacMeetingFile;
+
+  IqacMinutesOfIqacMeeting(
+      {this.meetingNo, this.heldOn, this.minutesOfIqacMeetingFile});
+
+  IqacMinutesOfIqacMeeting.fromJson(Map<String, dynamic> json) {
+    meetingNo = json['meetingNo'];
+    heldOn = json['heldOn'];
+    minutesOfIqacMeetingFile = json['minutesOfIqacMeetingFile'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['meetingNo'] = this.meetingNo;
     data['heldOn'] = this.heldOn;
     data['minutesOfIqacMeetingFile'] = this.minutesOfIqacMeetingFile;
-    data['iqacMinutesOfMeetingName'] = this.iqacMinutesOfMeetingName;
     return data;
   }
 }

@@ -6,6 +6,7 @@ import 'package:college_web/app/data/model/cbcs_rule_regulation_model.dart';
 import 'package:college_web/app/data/model/custom_academinc_model.dart';
 import 'package:college_web/app/data/model/fees_model.dart';
 import 'package:college_web/app/data/model/non_teaching_staff_model.dart';
+import 'package:college_web/app/data/model/teaching_staff_model.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -21,6 +22,7 @@ class CollegeAdministrativeController extends GetxController {
       Rx<CbcsRuleRegulationModel?>(null);
   Rx<AcademicCalenderModel?> academicCalenderResponse =
       Rx<AcademicCalenderModel?>(null);
+  Rx<teachingStaffModel?> teachingStaffResponse = Rx<teachingStaffModel?>(null);
   RxInt selectedIndex = 0.obs;
 
   RxList collegeOfficers = [].obs;
@@ -99,9 +101,9 @@ class CollegeAdministrativeController extends GetxController {
     );
     if (response.statusCode == 200) {
       var resp = jsonDecode(response.body);
-      CustomAcademicModel data = CustomAcademicModel.fromJson(resp);
-      customAcademicResponse.value = data;
-      teachingStaff.value = customAcademicResponse.value!.data!.toList();
+      teachingStaffModel data = teachingStaffModel.fromJson(resp);
+      teachingStaffResponse.value = data;
+      teachingStaff.value = teachingStaffResponse.value!.data!.toList();
     }
   }
 

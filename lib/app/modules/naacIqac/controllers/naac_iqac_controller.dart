@@ -7,6 +7,7 @@ import 'package:college_web/app/data/model/composition_iqac_model.dart';
 import 'package:college_web/app/data/model/cssr_naac_model.dart';
 import 'package:college_web/app/data/model/csss_naac_model.dart';
 import 'package:college_web/app/data/model/department_iqac_model.dart';
+import 'package:college_web/app/data/model/feedback_model.dart';
 import 'package:college_web/app/data/model/meeting_iqac_model.dart';
 import 'package:college_web/app/data/model/notification_iqac_model.dart';
 import 'package:college_web/app/data/model/po_pso_iqac_model.dart';
@@ -28,12 +29,17 @@ class NaacIqacController extends GetxController {
   Rx<CssrNaacModel?> cssrNaacResponse = Rx<CssrNaacModel?>(null);
   Rx<CsssNaacModel?> csssNaacResponse = Rx<CsssNaacModel?>(null);
   Rx<AqarNaacModel?> aqarNaacResponse = Rx<AqarNaacModel?>(null);
+  Rx<FeedbackModel?> feedbackResponse = Rx<FeedbackModel?>(null);
 
   RxBool naacActive = true.obs;
   RxBool iqacActive = false.obs;
 
   RxInt selectedIndex = 0.obs;
   RxInt selectedSession = 0.obs;
+  RxInt selectedFeedback = 0.obs;
+  RxInt selectedCalender = 0.obs;
+  RxInt selectedNotificationDate = 0.obs;
+  int selectedNotification = 0;
 
   RxList aboutIqacData = [].obs;
   RxList calenderIqacData = [].obs;
@@ -46,6 +52,7 @@ class NaacIqacController extends GetxController {
   RxList cssrNaacData = [].obs;
   RxList csssNaacData = [].obs;
   RxList aqarNaacData = [].obs;
+  RxList feedbackData = [].obs;
 
   List<Map<String, dynamic>> naacList = [
     {"name": "NAAC CSSR"},
@@ -70,13 +77,44 @@ class NaacIqacController extends GetxController {
     {"session": "2021 - 2022"},
   ];
 
+  List<Map<String, dynamic>> calenderList = [
+    {"name": "Academic Calender"},
+    {"name": "Leave Calender"},
+    {"name": "Event Calender"},
+    {"name": "Exam Calender"},
+  ];
+
+  List<Map<String, dynamic>> notificationDateList = [
+    {"date": "07-04-2017"},
+    {"date": "07-04-2022"},
+  ];
+  List<Map<String, dynamic>> feedbackUsersList = [
+    {"user": "Students"},
+    {"user": "Parents"},
+    {"user": "Teachers"},
+    {"user": "Alumni"},
+    {"user": "Employers"},
+  ];
+
   void changeIndex(index) {
     selectedIndex.value = index;
   }
 
   void changeSession(index) {
     selectedSession.value = index;
-    ;
+  }
+
+  void changeCalender(index) {
+    selectedCalender.value = index;
+  }
+
+  void changeNotificationDate(index) {
+    selectedNotificationDate.value = index;
+    selectedNotification = index;
+  }
+
+  void changeFeedbackUser(index) {
+    selectedFeedback.value = index;
   }
 
   Future getAboutIqacData() async {
@@ -95,7 +133,7 @@ class NaacIqacController extends GetxController {
 
   Future getCalenderIqacData() async {
     var response = await http.get(
-      Uri.parse("http://139.59.81.31/naaqandiqac/iqaccalender/"),
+      Uri.parse("http://139.59.81.31/naaqandiqac/iqaccalendernew/"),
     );
     // headers: {"Access-Control-Allow-Origin": "*"});
 
@@ -103,10 +141,10 @@ class NaacIqacController extends GetxController {
       var resp = jsonDecode(response.body);
       CalenderIqacModel data = CalenderIqacModel.fromJson(resp);
       calenderIqacResponse.value = data;
-      calenderIqacData.value = calenderIqacResponse.value!.data!.toList();
+      calenderIqacData.value = (calenderIqacResponse.value!.data!.toList());
 
       print(
-        "hhh " + calenderIqacData.length.toString(),
+        "hhh " + calenderIqacData[0]["calenderType"].toString(),
       );
     }
   }
@@ -195,14 +233,14 @@ class NaacIqacController extends GetxController {
 
     if (response.statusCode == 200) {
       var resp = jsonDecode(response.body);
-      print("jhhhhhhh" + resp.toString());
+      print("Thhhhhhh" + resp.toString());
       NotificationIqacModel data = NotificationIqacModel.fromJson(resp);
       notificationIqacResponse.value = data;
       notificationIqacData.value =
           notificationIqacResponse.value!.data!.toList();
 
       print(
-        "hhh" + notificationIqacData.toList().toString(),
+        "Thhh" + notificationIqacData.toList().toString(),
       );
     }
   }
@@ -278,6 +316,26 @@ class NaacIqacController extends GetxController {
     }
   }
 
+  Future getFeedbackData() async {
+    var response = await http.get(
+      Uri.parse("http://139.59.81.31/naaqandiqac/feedback/"),
+    );
+    // headers: {"Access-Control-Allow-Origin": "*"});
+
+    if (response.statusCode == 200) {
+      var resp = jsonDecode(response.body);
+      FeedbackModel data = FeedbackModel.fromJson(resp);
+      feedbackResponse.value = data;
+      feedbackData.value = feedbackResponse.value!.data!.toList();
+      print("AAAAA ${feedbackData[0].feedbackHeaderData[1].aboutFeedPara}");
+      print("CCCCC ${feedbackData[0].feedbackCategory[0].categoryName}");
+      print(
+          "About ${feedbackData[0].feedbackCategory[0].about[0].aboutCategory}");
+      print(
+          "Year ${feedbackData[0].feedbackCategory[0].feedbackCategoryData[0].sessionyearmodel}");
+    }
+  }
+
   void activateIqac() {
     iqacActive.value = true;
     naacActive.value = false;
@@ -302,6 +360,7 @@ class NaacIqacController extends GetxController {
     getCssrNaacData();
     getCsssNaacData();
     getAqarNaacData();
+    getFeedbackData();
   }
 
   @override

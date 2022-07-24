@@ -61,18 +61,13 @@ class _MenuBarState extends State<MenuBar> {
                 margin: EdgeInsets.only(top: 20, left: 30),
                 child: Image.asset("assets/logo.jpeg"),
               ),
-              InkWell(
-                onTap: () {
-                  Get.toNamed(Routes.ABOUT_US);
-                },
-                child: Text(
-                  "RAMA DEVI BAJLA MAHILA \nMAHAVIDYALAYA, DEOGHAR",
-                  textScaleFactor: 1,
-                  style: TextStyle(
-                    fontSize: 22,
-                    color: Color(0xFFA41E34),
-                    fontWeight: FontWeight.bold,
-                  ),
+              Text(
+                "RAMA DEVI BAJLA MAHILA \nMAHAVIDYALAYA, DEOGHAR",
+                textScaleFactor: 1,
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * .013,
+                  color: Color(0xFFA41E34),
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
@@ -114,14 +109,17 @@ class _MenuBarState extends State<MenuBar> {
                         "ADMISSION",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: MediaQuery.of(context).size.width * .012,
                           color: color,
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20),
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * .012,
+                      right: MediaQuery.of(context).size.width * .012,
+                    ),
                     child: Container(
                       height: 20,
                       color: Colors.white,
@@ -149,14 +147,17 @@ class _MenuBarState extends State<MenuBar> {
                         "EXAMINATION",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: MediaQuery.of(context).size.width * .012,
                           color: color1,
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20),
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * .012,
+                      right: MediaQuery.of(context).size.width * .012,
+                    ),
                     child: Container(
                       height: 20,
                       color: Colors.white,
@@ -184,14 +185,17 @@ class _MenuBarState extends State<MenuBar> {
                         "FACILITIES",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: MediaQuery.of(context).size.width * .012,
                           color: color2,
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20),
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * .012,
+                      right: MediaQuery.of(context).size.width * .012,
+                    ),
                     child: Container(
                       height: 20,
                       color: Colors.white,
@@ -219,14 +223,17 @@ class _MenuBarState extends State<MenuBar> {
                         "STUDENT CORNER",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: MediaQuery.of(context).size.width * .012,
                           color: color3,
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20),
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * .012,
+                      right: MediaQuery.of(context).size.width * .012,
+                    ),
                     child: Container(
                       height: 20,
                       color: Colors.white,
@@ -254,14 +261,17 @@ class _MenuBarState extends State<MenuBar> {
                         "NEWS",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: MediaQuery.of(context).size.width * .012,
                           color: color4,
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20),
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * .012,
+                      right: MediaQuery.of(context).size.width * .012,
+                    ),
                     child: Container(
                       height: 20,
                       color: Colors.white,
@@ -289,14 +299,17 @@ class _MenuBarState extends State<MenuBar> {
                         "ALUMNI",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: MediaQuery.of(context).size.width * .012,
                           color: color5,
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20),
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * .012,
+                      right: MediaQuery.of(context).size.width * .012,
+                    ),
                     child: Container(
                       height: 20,
                       color: Colors.white,
@@ -324,7 +337,7 @@ class _MenuBarState extends State<MenuBar> {
                         "CONTACT",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: MediaQuery.of(context).size.width * .012,
                           color: color6,
                         ),
                       ),
@@ -359,14 +372,17 @@ class _MenuBarState extends State<MenuBar> {
                         "THE RDBMM",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: MediaQuery.of(context).size.width * .012,
                           color: color7,
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 15, right: 15),
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * .011,
+                      right: MediaQuery.of(context).size.width * .011,
+                    ),
                     child: Container(
                       height: 17,
                       color: Color(0xFFA41E34),
@@ -394,14 +410,17 @@ class _MenuBarState extends State<MenuBar> {
                         "COLLEGE ADMINISTRATIVE",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: MediaQuery.of(context).size.width * .012,
                           color: color8,
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 15, right: 15),
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * .011,
+                      right: MediaQuery.of(context).size.width * .011,
+                    ),
                     child: Container(
                       height: 17,
                       color: Color(0xFFA41E34),
@@ -429,14 +448,17 @@ class _MenuBarState extends State<MenuBar> {
                         "NAAC & IQAC",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: MediaQuery.of(context).size.width * .012,
                           color: color9,
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 15, right: 15),
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * .011,
+                      right: MediaQuery.of(context).size.width * .011,
+                    ),
                     child: Container(
                       height: 17,
                       color: Color(0xFFA41E34),
@@ -464,7 +486,7 @@ class _MenuBarState extends State<MenuBar> {
                         "ACADEMICS",
                         textScaleFactor: 1,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: MediaQuery.of(context).size.width * .012,
                           color: color10,
                         ),
                       ),
@@ -487,7 +509,8 @@ class _MenuBarState extends State<MenuBar> {
                             "LOGIN",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 17,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * .012,
                               fontWeight: FontWeight.w600,
                             ),
                           ),

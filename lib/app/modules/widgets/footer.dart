@@ -1,6 +1,8 @@
+import 'package:college_web/app/routes/app_pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:html' as html;
+import 'package:get/get.dart';
+// import 'dart:html' as html;
 
 class FooterWidget extends StatelessWidget {
   const FooterWidget({Key? key}) : super(key: key);
@@ -8,7 +10,7 @@ class FooterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: 270,
       color: Colors.black.withOpacity(.8),
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
       width: double.infinity,
@@ -77,13 +79,18 @@ class FooterWidget extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 5),
-                    Text(
-                      "Carreer",
-                      textScaleFactor: 1,
-                      style: TextStyle(
-                        fontSize: 14,
-                        letterSpacing: 2,
-                        color: Colors.white,
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.ADMISSION_FORM);
+                      },
+                      child: Text(
+                        "Carreer",
+                        textScaleFactor: 1,
+                        style: TextStyle(
+                          fontSize: 14,
+                          letterSpacing: 2,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                     SizedBox(height: 5),
@@ -237,9 +244,9 @@ class FooterWidget extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 10),
                     Text(
-                      "Phone Directory",
+                      "Rama Devi Bajla Mahila Mahavidhyalaya",
                       textScaleFactor: 1,
                       style: TextStyle(
                         fontSize: 14,
@@ -247,9 +254,9 @@ class FooterWidget extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 2),
                     Text(
-                      "Support",
+                      "Castairs Town, Deoghar",
                       textScaleFactor: 1,
                       style: TextStyle(
                         fontSize: 14,
@@ -257,9 +264,9 @@ class FooterWidget extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 2),
                     Text(
-                      "FAQ",
+                      "Jharkhand - 814112",
                       textScaleFactor: 1,
                       style: TextStyle(
                         fontSize: 14,
@@ -267,14 +274,24 @@ class FooterWidget extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 2),
                     Text(
-                      "Reach Us",
+                      "Phone No. - 9431548372",
                       textScaleFactor: 1,
                       style: TextStyle(
                         fontSize: 14,
                         letterSpacing: 2,
                         color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 2),
+                    Text(
+                      "rdbmcollegedeoghar@gmail.com",
+                      textScaleFactor: 1,
+                      style: TextStyle(
+                        fontSize: 14,
+                        letterSpacing: 2,
+                        color: Colors.blue,
                       ),
                     )
                   ],
@@ -283,99 +300,99 @@ class FooterWidget extends StatelessWidget {
             ],
           ),
           SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(top: 10, bottom: 10),
-            child: Text(
-              "Some Important Links",
-              textScaleFactor: 1,
-              style: TextStyle(
-                fontSize: 16,
-                letterSpacing: 4,
-                fontWeight: FontWeight.bold,
-                color: Colors.redAccent,
-              ),
-            ),
-          ),
-          Row(
-            children: [
-              MaterialButton(
-                onPressed: () {
-                  html.window.open("https://www.ugc.ac.in/", "_blank");
-                },
-                child: Text(
-                  "UGC",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-                color: Colors.blue,
-              ),
-              SizedBox(width: 10),
-              MaterialButton(
-                onPressed: () {
-                  html.window
-                      .open("http://naac.gov.in/index.php/en/", "_blank");
-                },
-                child: Text(
-                  "NAAC",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-                color: Colors.blue,
-              ),
-              SizedBox(width: 10),
-              MaterialButton(
-                onPressed: () {
-                  html.window.open(
-                      "https://dhr.gov.in/schemes/human-resource-development-health-research-hrd",
-                      "_blank");
-                },
-                child: Text(
-                  "HRD",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-                color: Colors.blue,
-              ),
-              SizedBox(width: 10),
-              MaterialButton(
-                onPressed: () {
-                  html.window.open("https://www.upsc.gov.in/", "_blank");
-                },
-                child: Text(
-                  "UPSC",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-                color: Colors.blue,
-              ),
-              SizedBox(width: 10),
-              MaterialButton(
-                onPressed: () {
-                  html.window.open(
-                      "https://ugcnet.nta.nic.in/WebInfo/Page/Page?PageId=1&LangId=P",
-                      "_blank");
-                },
-                child: Text(
-                  "UGC-NET",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-                color: Colors.blue,
-              ),
-              SizedBox(width: 10),
-              MaterialButton(
-                onPressed: () {
-                  html.window.open("https://ssc.nic.in/", "_blank");
-                },
-                child: Text(
-                  "SSC",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-                color: Colors.blue,
-              )
-            ],
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(top: 10, bottom: 10),
+          //   child: Text(
+          //     "Some Important Links",
+          //     textScaleFactor: 1,
+          //     style: TextStyle(
+          //       fontSize: 16,
+          //       letterSpacing: 4,
+          //       fontWeight: FontWeight.bold,
+          //       color: Colors.redAccent,
+          //     ),
+          //   ),
+          // ),
+          // Row(
+          //   children: [
+          //     MaterialButton(
+          //       onPressed: () {
+          //         html.window.open("https://www.ugc.ac.in/", "_blank");
+          //       },
+          //       child: Text(
+          //         "UGC",
+          //         style: TextStyle(
+          //             fontWeight: FontWeight.bold, color: Colors.white),
+          //       ),
+          //       color: Colors.blue,
+          //     ),
+          //     SizedBox(width: 10),
+          //     MaterialButton(
+          //       onPressed: () {
+          //         html.window
+          //             .open("http://naac.gov.in/index.php/en/", "_blank");
+          //       },
+          //       child: Text(
+          //         "NAAC",
+          //         style: TextStyle(
+          //             fontWeight: FontWeight.bold, color: Colors.white),
+          //       ),
+          //       color: Colors.blue,
+          //     ),
+          //     SizedBox(width: 10),
+          //     MaterialButton(
+          //       onPressed: () {
+          //         html.window.open(
+          //             "https://dhr.gov.in/schemes/human-resource-development-health-research-hrd",
+          //             "_blank");
+          //       },
+          //       child: Text(
+          //         "HRD",
+          //         style: TextStyle(
+          //             fontWeight: FontWeight.bold, color: Colors.white),
+          //       ),
+          //       color: Colors.blue,
+          //     ),
+          //     SizedBox(width: 10),
+          //     MaterialButton(
+          //       onPressed: () {
+          //         html.window.open("https://www.upsc.gov.in/", "_blank");
+          //       },
+          //       child: Text(
+          //         "UPSC",
+          //         style: TextStyle(
+          //             fontWeight: FontWeight.bold, color: Colors.white),
+          //       ),
+          //       color: Colors.blue,
+          //     ),
+          //     SizedBox(width: 10),
+          //     MaterialButton(
+          //       onPressed: () {
+          //         html.window.open(
+          //             "https://ugcnet.nta.nic.in/WebInfo/Page/Page?PageId=1&LangId=P",
+          //             "_blank");
+          //       },
+          //       child: Text(
+          //         "UGC-NET",
+          //         style: TextStyle(
+          //             fontWeight: FontWeight.bold, color: Colors.white),
+          //       ),
+          //       color: Colors.blue,
+          //     ),
+          //     SizedBox(width: 10),
+          //     MaterialButton(
+          //       onPressed: () {
+          //         html.window.open("https://ssc.nic.in/", "_blank");
+          //       },
+          //       child: Text(
+          //         "SSC",
+          //         style: TextStyle(
+          //             fontWeight: FontWeight.bold, color: Colors.white),
+          //       ),
+          //       color: Colors.blue,
+          //     )
+          //   ],
+          // ),
           Divider(
             thickness: 1,
             color: Colors.grey,

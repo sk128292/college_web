@@ -1,5 +1,8 @@
+import 'package:college_web/app/modules/widgets/custom_drawer.dart';
 import 'package:college_web/app/modules/widgets/footer.dart';
 import 'package:college_web/app/modules/widgets/menu_bar_widget.dart';
+import 'package:college_web/app/modules/widgets/responsive.dart';
+import 'package:college_web/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -10,56 +13,54 @@ import 'dart:html' as html;
 class AcademicView extends GetView<AcademicController> {
   @override
   Widget build(BuildContext context) {
+    final bool isDesktop = Responsive.isDesktop(context);
     return Scaffold(
-      backgroundColor: Colors.grey,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        // leading: Padding(
-        //   padding: const EdgeInsets.only(left: 100, top: 10),
-        //   child: Row(
-        //     children: [
-        //       Text("Phone: +91 9431548372, "),
-        //       SizedBox(width: 15),
-        //       Text("Email: principal@rdbmm.ac.in"),
-        //     ],
-        //   ),
-        // ),
-        // automaticallyImplyLeading: false,
-        // leadingWidth: 500,
-        // actions: [
-        //   SizedBox(width: 20),
-        //   Row(
-        //     children: [
-        //       Row(
-        //         children: [
-        //           Icon(Icons.login, size: 17),
-        //           SizedBox(width: 5),
-        //           Text(
-        //             "Login",
-        //             textScaleFactor: 1,
-        //             style: TextStyle(fontSize: 15),
-        //           ),
-        //         ],
-        //       ),
-        //       // SizedBox(width: 15),
-        //       // Row(
-        //       //   children: [
-        //       //     Icon(Icons.edit, size: 17),
-        //       //     SizedBox(width: 5),
-        //       //     Text(
-        //       //       "Signup",
-        //       //       textScaleFactor: 1,
-        //       //       style: TextStyle(fontSize: 15),
-        //       //     ),
-        //       //   ],
-        //       // ),
-        //       SizedBox(width: 40),
-        //     ],
-        //   )
-        // ],
-        bottom: PreferredSize(
-            child: MenuBar(), preferredSize: Size.fromHeight(100.0)),
-      ),
+      appBar: isDesktop
+          ? AppBar(
+              backgroundColor: Colors.white,
+              bottom: PreferredSize(
+                  child: MenuBar(), preferredSize: Size.fromHeight(100.0)),
+            )
+          : AppBar(
+              backgroundColor: Colors.white,
+              iconTheme: IconThemeData(color: Colors.black),
+              flexibleSpace: Container(
+                child: InkWell(
+                  onTap: () {
+                    Get.toNamed(Routes.HOME);
+                  },
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 100,
+                        width: 130,
+                        margin: EdgeInsets.only(top: 10, left: 100),
+                        child: Image.asset("assets/logo.jpeg"),
+                      ),
+                      Text(
+                        "RAMA DEVI BAJLA MAHILA \nMAHAVIDYALAYA, DEOGHAR",
+                        textScaleFactor: 1,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Color(0xFFA41E34),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              bottom: PreferredSize(
+                child: Text(""),
+                preferredSize: Size.fromHeight(60.0),
+              ),
+            ),
+      drawer: !isDesktop
+          ? Drawer(
+              child: DrawerMenu(),
+            )
+          : null,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -190,457 +191,206 @@ class AcademicView extends GetView<AcademicController> {
                       () => SingleChildScrollView(
                         child: Container(
                           padding: EdgeInsets.all(15),
-                          child:
-                              //  controller.selectedIndex == 11
-                              //     ? CustomAcademicTable(
-                              //         table: List<TableRow>.generate(
-                              //           controller.grievanceRedressalCell.length,
-                              //           (index) {
-                              //             return TableRow(
-                              //               children: [
-                              //                 Padding(
-                              //                   padding: const EdgeInsets.all(10.0),
-                              //                   child: Text(
-                              //                       controller
-                              //                           .grievanceRedressalCell[
-                              //                               index]
-                              //                           .sNo
-                              //                           .toString(),
-                              //                       textAlign: TextAlign.center),
-                              //                 ),
-                              //                 Padding(
-                              //                   padding: const EdgeInsets.all(10.0),
-                              //                   child: Text(
-                              //                       controller
-                              //                           .grievanceRedressalCell[
-                              //                               index]
-                              //                           .name
-                              //                           .toString(),
-                              //                       textAlign: TextAlign.center),
-                              //                 ),
-                              //                 Padding(
-                              //                   padding: const EdgeInsets.all(10.0),
-                              //                   child: Text(
-                              //                       controller
-                              //                           .grievanceRedressalCell[
-                              //                               index]
-                              //                           .designation
-                              //                           .toString(),
-                              //                       textAlign: TextAlign.center),
-                              //                 ),
-                              //                 Padding(
-                              //                   padding: const EdgeInsets.all(10.0),
-                              //                   child: Text(
-                              //                       controller
-                              //                           .grievanceRedressalCell[
-                              //                               index]
-                              //                           .mobileNumber
-                              //                           .toString(),
-                              //                       textAlign: TextAlign.center),
-                              //                 ),
-                              //               ],
-                              //             );
-                              //           },
-                              //         ),
-                              //       )
-                              //     : controller.selectedIndex == 12
-                              //         ? CustomAcademicTable(
-                              //             table: List<TableRow>.generate(
-                              //               controller.antiRaggingCell.length,
-                              //               (index) {
-                              //                 return TableRow(
-                              //                   children: [
-                              //                     Padding(
-                              //                       padding:
-                              //                           const EdgeInsets.all(10.0),
-                              //                       child: Text(
-                              //                           controller
-                              //                               .antiRaggingCell[index]
-                              //                               .sNo
-                              //                               .toString(),
-                              //                           textAlign:
-                              //                               TextAlign.center),
-                              //                     ),
-                              //                     Padding(
-                              //                       padding:
-                              //                           const EdgeInsets.all(10.0),
-                              //                       child: Text(
-                              //                           controller
-                              //                               .antiRaggingCell[index]
-                              //                               .name
-                              //                               .toString(),
-                              //                           textAlign:
-                              //                               TextAlign.center),
-                              //                     ),
-                              //                     Padding(
-                              //                       padding:
-                              //                           const EdgeInsets.all(10.0),
-                              //                       child: Text(
-                              //                           controller
-                              //                               .antiRaggingCell[index]
-                              //                               .designation
-                              //                               .toString(),
-                              //                           textAlign:
-                              //                               TextAlign.center),
-                              //                     ),
-                              //                     Padding(
-                              //                       padding:
-                              //                           const EdgeInsets.all(10.0),
-                              //                       child: Text(
-                              //                           controller
-                              //                               .antiRaggingCell[index]
-                              //                               .mobileNumber
-                              //                               .toString(),
-                              //                           textAlign:
-                              //                               TextAlign.center),
-                              //                     ),
-                              //                   ],
-                              //                 );
-                              //               },
-                              //             ),
-                              //           )
-                              //         : controller.selectedIndex == 13
-                              //             ? CustomAcademicTable(
-                              //                 table: List<TableRow>.generate(
-                              //                   controller
-                              //                       .womenandSexualHarassmentCell
-                              //                       .length,
-                              //                   (index) {
-                              //                     return TableRow(
-                              //                       children: [
-                              //                         Padding(
-                              //                           padding:
-                              //                               const EdgeInsets.all(
-                              //                                   10.0),
-                              //                           child: Text(
-                              //                               controller
-                              //                                   .womenandSexualHarassmentCell[
-                              //                                       index]
-                              //                                   .sNo
-                              //                                   .toString(),
-                              //                               textAlign:
-                              //                                   TextAlign.center),
-                              //                         ),
-                              //                         Padding(
-                              //                           padding:
-                              //                               const EdgeInsets.all(
-                              //                                   10.0),
-                              //                           child: Text(
-                              //                               controller
-                              //                                   .womenandSexualHarassmentCell[
-                              //                                       index]
-                              //                                   .name
-                              //                                   .toString(),
-                              //                               textAlign:
-                              //                                   TextAlign.center),
-                              //                         ),
-                              //                         Padding(
-                              //                           padding:
-                              //                               const EdgeInsets.all(
-                              //                                   10.0),
-                              //                           child: Text(
-                              //                               controller
-                              //                                   .womenandSexualHarassmentCell[
-                              //                                       index]
-                              //                                   .designation
-                              //                                   .toString(),
-                              //                               textAlign:
-                              //                                   TextAlign.center),
-                              //                         ),
-                              //                         Padding(
-                              //                           padding:
-                              //                               const EdgeInsets.all(
-                              //                                   10.0),
-                              //                           child: Text(
-                              //                               controller
-                              //                                   .womenandSexualHarassmentCell[
-                              //                                       index]
-                              //                                   .mobileNumber
-                              //                                   .toString(),
-                              //                               textAlign:
-                              //                                   TextAlign.center),
-                              //                         ),
-                              //                       ],
-                              //                     );
-                              //                   },
-                              //                 ),
-                              //               )
-                              //             : controller.selectedIndex == 14
-                              //                 ? CustomAcademicTable(
-                              //                     table: List<TableRow>.generate(
-                              //                       controller.ecoClub.length,
-                              //                       (index) {
-                              //                         return TableRow(
-                              //                           children: [
-                              //                             Padding(
-                              //                               padding:
-                              //                                   const EdgeInsets
-                              //                                       .all(10.0),
-                              //                               child: Text(
-                              //                                   controller
-                              //                                       .ecoClub[index]
-                              //                                       .sNo
-                              //                                       .toString(),
-                              //                                   textAlign: TextAlign
-                              //                                       .center),
-                              //                             ),
-                              //                             Padding(
-                              //                               padding:
-                              //                                   const EdgeInsets
-                              //                                       .all(10.0),
-                              //                               child: Text(
-                              //                                   controller
-                              //                                       .ecoClub[index]
-                              //                                       .name
-                              //                                       .toString(),
-                              //                                   textAlign: TextAlign
-                              //                                       .center),
-                              //                             ),
-                              //                             Padding(
-                              //                               padding:
-                              //                                   const EdgeInsets
-                              //                                       .all(10.0),
-                              //                               child: Text(
-                              //                                   controller
-                              //                                       .ecoClub[index]
-                              //                                       .designation
-                              //                                       .toString(),
-                              //                                   textAlign: TextAlign
-                              //                                       .center),
-                              //                             ),
-                              //                             Padding(
-                              //                               padding:
-                              //                                   const EdgeInsets
-                              //                                       .all(10.0),
-                              //                               child: Text(
-                              //                                   controller
-                              //                                       .ecoClub[index]
-                              //                                       .mobileNumber
-                              //                                       .toString(),
-                              //                                   textAlign: TextAlign
-                              //                                       .center),
-                              //                             ),
-                              //                           ],
-                              //                         );
-                              //                       },
-                              //                     ),
-                              //                   )
-                              //                 :
-                              controller.selectedIndex == 3
-                                  ? Column(
-                                      children: [
-                                        Table(
-                                          columnWidths: {
-                                            0: FlexColumnWidth(3),
-                                            1: FlexColumnWidth(2),
-                                            2: FlexColumnWidth(2),
+                          child: controller.selectedIndex == 0
+                              ? InkWell(
+                                  onTap: () {
+                                    Get.toNamed(Routes.DEPARTMENT);
+                                  },
+                                  child: Card(
+                                    color: Colors.lightBlue[200],
+                                    elevation: 5,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 10, horizontal: 50),
+                                      child: Text(
+                                        "CLICK HERE TO GET ALL PROGRAMME",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color: Colors.redAccent,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : controller.selectedIndex == 1
+                                  ? ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: controller
+                                          .cbcsRuleRegulationData.length,
+                                      itemBuilder: (context, index) {
+                                        return InkWell(
+                                          onTap: () {
+                                            html.window.open(
+                                                controller
+                                                    .cbcsRuleRegulationData[
+                                                        index]
+                                                    .calendarFile
+                                                    .toString(),
+                                                "_blank");
                                           },
-                                          defaultVerticalAlignment:
-                                              TableCellVerticalAlignment.middle,
-                                          border: TableBorder.all(
-                                              color: Colors.black),
+                                          child: Card(
+                                            margin: EdgeInsets.all(10),
+                                            color: Colors.grey[200],
+                                            elevation: 5,
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(10.0),
+                                              child: Text(
+                                                controller
+                                                    .cbcsRuleRegulationData[
+                                                        index]
+                                                    .title
+                                                    .toString(),
+                                                style: TextStyle(
+                                                  fontSize: 20,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    )
+                                  : controller.selectedIndex == 3
+                                      ? Column(
                                           children: [
-                                            TableRow(
+                                            Table(
+                                              columnWidths: {
+                                                0: FlexColumnWidth(3),
+                                                1: FlexColumnWidth(2),
+                                                2: FlexColumnWidth(2),
+                                              },
+                                              defaultVerticalAlignment:
+                                                  TableCellVerticalAlignment
+                                                      .middle,
+                                              border: TableBorder.all(
+                                                  color: Colors.black),
                                               children: [
-                                                Padding(
-                                                  padding: EdgeInsets.all(15),
-                                                  child: Text(
-                                                    "Departmment",
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 22,
+                                                TableRow(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsets.all(15),
+                                                      child: Text(
+                                                        "Departmment",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 22,
+                                                        ),
+                                                      ),
                                                     ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.all(15.0),
-                                                  child: Text(
-                                                    "Faculty Time Table",
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 22,
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsets.all(15.0),
+                                                      child: Text(
+                                                        "Faculty Time Table",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 22,
+                                                        ),
+                                                      ),
                                                     ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.all(15.0),
-                                                  child: Text(
-                                                    "Class Time Table",
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 22,
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsets.all(15.0),
+                                                      child: Text(
+                                                        "Class Time Table",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 22,
+                                                        ),
+                                                      ),
                                                     ),
-                                                  ),
+                                                  ],
                                                 ),
                                               ],
                                             ),
-                                          ],
-                                        ),
-                                        Table(
-                                          columnWidths: {
-                                            0: FlexColumnWidth(3),
-                                            1: FlexColumnWidth(2),
-                                            2: FlexColumnWidth(2),
-                                          },
-                                          defaultVerticalAlignment:
-                                              TableCellVerticalAlignment.middle,
-                                          border: TableBorder.all(
-                                              color: Colors.black),
-                                          children: List<TableRow>.generate(
-                                            controller.academicTimeTable.length,
-                                            (index) {
-                                              return TableRow(
-                                                children: [
-                                                  Text(
-                                                    controller
-                                                        .academicTimeTable[
-                                                            index]
-                                                        .title
-                                                        .toString(),
-                                                    textAlign: TextAlign.center,
-                                                  ),
-                                                  IconButton(
-                                                    onPressed: () {
-                                                      html.window.open(
-                                                          controller
-                                                              .academicTimeTable[
-                                                                  index]
-                                                              .facultyTimetable
-                                                              .toString(),
-                                                          "_blank");
-                                                    },
-                                                    icon: Icon(
-                                                      Icons.picture_as_pdf,
-                                                      color: Color(0xFFA41E34),
-                                                    ),
-                                                  ),
-                                                  IconButton(
-                                                    onPressed: () {
-                                                      html.window.open(
-                                                          controller
-                                                              .academicTimeTable[
-                                                                  index]
-                                                              .classTimetable
-                                                              .toString(),
-                                                          "_blank");
-                                                    },
-                                                    icon: Icon(
-                                                      Icons.picture_as_pdf,
-                                                      color: Color(0xFFA41E34),
-                                                    ),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  : controller.selectedIndex == 4
-                                      ? ListView.builder(
-                                          shrinkWrap: true,
-                                          itemCount: controller
-                                              .academicCalenderData.length,
-                                          itemBuilder: (context, index) {
-                                            return InkWell(
-                                              onTap: () {
-                                                html.window.open(
-                                                    controller
-                                                        .academicCalenderData[
-                                                            index]
-                                                        .calendarFile
-                                                        .toString(),
-                                                    "_blank");
+                                            Table(
+                                              columnWidths: {
+                                                0: FlexColumnWidth(3),
+                                                1: FlexColumnWidth(2),
+                                                2: FlexColumnWidth(2),
                                               },
-                                              child: Card(
-                                                margin: EdgeInsets.all(10),
-                                                color: Colors.grey[200],
-                                                elevation: 5,
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      10.0),
-                                                  child: Text(
-                                                    controller
-                                                        .academicCalenderData[
-                                                            index]
-                                                        .title
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                      fontSize: 20,
-                                                    ),
-                                                  ),
-                                                ),
+                                              defaultVerticalAlignment:
+                                                  TableCellVerticalAlignment
+                                                      .middle,
+                                              border: TableBorder.all(
+                                                  color: Colors.black),
+                                              children: List<TableRow>.generate(
+                                                controller
+                                                    .academicTimeTable.length,
+                                                (index) {
+                                                  return TableRow(
+                                                    children: [
+                                                      Text(
+                                                        controller
+                                                            .academicTimeTable[
+                                                                index]
+                                                            .title
+                                                            .toString(),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          html.window.open(
+                                                              controller
+                                                                  .academicTimeTable[
+                                                                      index]
+                                                                  .facultyTimetable
+                                                                  .toString(),
+                                                              "_blank");
+                                                        },
+                                                        icon: Icon(
+                                                          Icons.picture_as_pdf,
+                                                          color:
+                                                              Color(0xFFA41E34),
+                                                        ),
+                                                      ),
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          html.window.open(
+                                                              controller
+                                                                  .academicTimeTable[
+                                                                      index]
+                                                                  .classTimetable
+                                                                  .toString(),
+                                                              "_blank");
+                                                        },
+                                                        icon: Icon(
+                                                          Icons.picture_as_pdf,
+                                                          color:
+                                                              Color(0xFFA41E34),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
                                               ),
-                                            );
-                                          },
+                                            ),
+                                          ],
                                         )
-                                      // : controller.selectedIndex ==
-                                      //         18
-                                      //     ? ListView.builder(
-                                      //         shrinkWrap: true,
-                                      //         itemCount: controller
-                                      //             .academicExellanceData
-                                      //             .length,
-                                      //         itemBuilder:
-                                      //             (context, index) {
-                                      //           return InkWell(
-                                      //             onTap: () {
-                                      //               html.window.open(
-                                      //                   controller
-                                      //                       .academicExellanceData[
-                                      //                           index]
-                                      //                       .calendarFile
-                                      //                       .toString(),
-                                      //                   "_blank");
-                                      //             },
-                                      //             child: Card(
-                                      //               margin:
-                                      //                   EdgeInsets
-                                      //                       .all(
-                                      //                           10),
-                                      //               color: Colors
-                                      //                   .grey[200],
-                                      //               elevation: 5,
-                                      //               child: Padding(
-                                      //                 padding:
-                                      //                     const EdgeInsets
-                                      //                             .all(
-                                      //                         10.0),
-                                      //                 child: Text(
-                                      //                   controller
-                                      //                       .academicExellanceData[
-                                      //                           index]
-                                      //                       .title
-                                      //                       .toString(),
-                                      //                   style:
-                                      //                       TextStyle(
-                                      //                     fontSize:
-                                      //                         20,
-                                      //                   ),
-                                      //                 ),
-                                      //               ),
-                                      //             ),
-                                      //           );
-                                      //         },
-                                      //       )
-                                      : controller.selectedIndex == 1
+                                      : controller.selectedIndex == 4
                                           ? ListView.builder(
                                               shrinkWrap: true,
                                               itemCount: controller
-                                                  .cbcsRuleRegulationData
-                                                  .length,
+                                                  .academicCalenderData.length,
                                               itemBuilder: (context, index) {
                                                 return InkWell(
                                                   onTap: () {
                                                     html.window.open(
                                                         controller
-                                                            .cbcsRuleRegulationData[
+                                                            .academicCalenderData[
                                                                 index]
                                                             .calendarFile
                                                             .toString(),
@@ -656,7 +406,7 @@ class AcademicView extends GetView<AcademicController> {
                                                               10.0),
                                                       child: Text(
                                                         controller
-                                                            .cbcsRuleRegulationData[
+                                                            .academicCalenderData[
                                                                 index]
                                                             .title
                                                             .toString(),

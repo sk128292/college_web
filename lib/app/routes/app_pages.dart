@@ -6,6 +6,8 @@ import 'package:college_web/app/modules/academic/bindings/academic_binding.dart'
 import 'package:college_web/app/modules/academic/views/academic_view.dart';
 import 'package:college_web/app/modules/admission/bindings/admission_binding.dart';
 import 'package:college_web/app/modules/admission/views/admission_view.dart';
+import 'package:college_web/app/modules/admissionForm/bindings/admission_form_binding.dart';
+import 'package:college_web/app/modules/admissionForm/views/admission_form_view.dart';
 import 'package:college_web/app/modules/art/bindings/art_binding.dart';
 import 'package:college_web/app/modules/art/views/art_view.dart';
 import 'package:college_web/app/modules/collegeAdministrative/bindings/college_administrative_binding.dart';
@@ -18,6 +20,8 @@ import 'package:college_web/app/modules/examination/bindings/examination_binding
 import 'package:college_web/app/modules/examination/views/examination_view.dart';
 import 'package:college_web/app/modules/facilities/bindings/facilities_binding.dart';
 import 'package:college_web/app/modules/facilities/views/facilities_view.dart';
+import 'package:college_web/app/modules/feedback/bindings/feedback_binding.dart';
+import 'package:college_web/app/modules/feedback/views/feedback_view.dart';
 import 'package:college_web/app/modules/home/bindings/home_binding.dart';
 import 'package:college_web/app/modules/home/views/home_view.dart';
 import 'package:college_web/app/modules/learningPortal/bindings/learning_portal_binding.dart';
@@ -113,6 +117,16 @@ class AppPages {
       name: _Paths.EXAMINATION,
       page: () => ExaminationView(),
       binding: ExaminationBinding(),
+    ),
+    GetPage(
+      name: _Paths.FEEDBACK,
+      page: () => FeedbackView(),
+      binding: FeedbackBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMISSION_FORM,
+      page: () => AdmissionFormView(),
+      binding: AdmissionFormBinding(),
     ),
   ];
 }

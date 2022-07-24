@@ -29,6 +29,7 @@ class AcademicController extends GetxController {
   // RxList feesData = [].obs;
   RxList cbcsRuleRegulationData = [].obs;
   RxList academicCalenderData = [].obs;
+
   // RxList academicExellanceData = [].obs;
 
   List academics = [
@@ -48,18 +49,12 @@ class AcademicController extends GetxController {
 
   List humanities = [
     "Department of Hindi",
-    "Department of English",
-    "Department of Bengali",
-    "Department of Philosphy",
-    "Department of Sanskrit"
   ];
 
   List science = [
     "Department of Botany",
     "Department of Zoology",
     "Department of Physics",
-    "Department of Chemistry",
-    "Department of Mathemetics"
   ];
   List commerce = [
     "Department of Accounts",
@@ -68,8 +63,6 @@ class AcademicController extends GetxController {
     "Department of Political Science",
     "Department of Economics",
     "Department of History",
-    "Department of Phycchology",
-    "Department of Sociology"
   ];
 
   void changeIndex(index) {
@@ -87,19 +80,6 @@ class AcademicController extends GetxController {
       academicTimeTable.value = academicTimeTableResponse.value!.data!.toList();
     }
   }
-
-  // Future getGrievanceRedressalCell() async {
-  //   var response = await http.get(
-  //     Uri.parse("http://rdbmm.ac.in/academic/grievanceredressalcell/"),
-  //   );
-  //   if (response.statusCode == 200) {
-  //     var resp = jsonDecode(response.body);
-  //     CustomAcademicModel data = CustomAcademicModel.fromJson(resp);
-  //     customAcademicResponse.value = data;
-  //     grievanceRedressalCell.value =
-  //         customAcademicResponse.value!.data!.toList();
-  //   }
-  // }
 
   // Future getAntiRaggingCell() async {
   //   var response = await http.get(
@@ -193,7 +173,6 @@ class AcademicController extends GetxController {
   void onInit() {
     super.onInit();
     getAcademicTimeTableData();
-    // getGrievanceRedressalCell();
     // getAntiRaggingCell();
     // getWomenHarassmentCell();
     // getEcoClub();

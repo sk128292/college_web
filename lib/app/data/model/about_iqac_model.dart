@@ -25,25 +25,42 @@ class AboutIqacModel {
 }
 
 class Data {
-  int? id;
   String? aboutTitle;
-  String? iqacLogo;
-  String? aboutIqac;
+  List<ParaAbout>? paraAbout;
 
-  Data({this.id, this.aboutTitle, this.iqacLogo, this.aboutIqac});
+  Data({this.aboutTitle, this.paraAbout});
 
   Data.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
     aboutTitle = json['aboutTitle'];
-    iqacLogo = json['iqacLogo'];
+    if (json['para_about'] != null) {
+      paraAbout = <ParaAbout>[];
+      json['para_about'].forEach((v) {
+        paraAbout!.add(new ParaAbout.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['aboutTitle'] = this.aboutTitle;
+    if (this.paraAbout != null) {
+      data['para_about'] = this.paraAbout!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class ParaAbout {
+  String? aboutIqac;
+
+  ParaAbout({this.aboutIqac});
+
+  ParaAbout.fromJson(Map<String, dynamic> json) {
     aboutIqac = json['aboutIqac'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['aboutTitle'] = this.aboutTitle;
-    data['iqacLogo'] = this.iqacLogo;
     data['aboutIqac'] = this.aboutIqac;
     return data;
   }

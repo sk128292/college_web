@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:college_web/app/data/model/all_program_model.dart';
 import 'package:college_web/app/data/model/department_iqac_model.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -8,34 +9,26 @@ class DepartmentController extends GetxController {
   Rx<DepartmentIqacModel?> departmentIqacResponse =
       Rx<DepartmentIqacModel?>(null);
 
+  Rx<allProgramModel?> allProgramResponse = Rx<allProgramModel?>(null);
+
   RxInt selectedIndex = 0.obs;
 
   RxList departmentIqacData = [].obs;
+  RxList allProgramData = [].obs;
 
   List humanities = [
     "Department of Hindi",
     "Department of English",
-    "Department of Bengali",
-    "Department of Philosphy",
-    "Department of Sanskrit"
   ];
 
   List science = [
     "Department of Botany",
-    "Department of Zoology",
-    "Department of Physics",
-    "Department of Chemistry",
-    "Department of Mathemetics"
   ];
   List commerce = [
     "Department of Accounts",
   ];
   List socialScience = [
     "Department of Political Science",
-    "Department of Economics",
-    "Department of History",
-    "Department of Phycchology",
-    "Department of Sociology"
   ];
 
   void changeIndex(index) {
@@ -61,10 +54,25 @@ class DepartmentController extends GetxController {
     }
   }
 
+  Future getAllProgram() async {
+    var response = await http.get(
+      Uri.parse("http://rdbmm.ac.in/programs/facultyofSubject/"),
+    );
+    if (response.statusCode == 200) {
+      var resp = jsonDecode(response.body);
+      allProgramModel data = allProgramModel.fromJson(resp);
+      allProgramResponse.value = data;
+      allProgramData.value = allProgramResponse.value!.data!.toList();
+      print(
+          "ABCDEF : ${allProgramData[selectedIndex.value].facultyOfSubjectsData.length}");
+    }
+  }
+
   @override
   void onInit() {
     super.onInit();
     getDepartmentIqacData();
+    getAllProgram();
   }
 
   @override

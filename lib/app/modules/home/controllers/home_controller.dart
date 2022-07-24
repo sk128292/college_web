@@ -30,6 +30,40 @@ class HomeController extends GetxController {
     "assets/5.jpg",
   ];
 
+  List<Map<String, String>> importantLinks = [
+    {
+      "name": "Human Resource And Development",
+      "image": "assets/hrdLogo.jpg",
+      "link":
+          "https://dhr.gov.in/schemes/human-resource-development-health-research-hrd"
+    },
+    {
+      "name": "National Assessment and Accreditation Council (NAAC)",
+      "image": "assets/naacLogo.png",
+      "link": "http://naac.gov.in/index.php/en/"
+    },
+    {
+      "name": "Staff Selection Commission",
+      "image": "assets/sscLogo.png",
+      "link": ""
+    },
+    {
+      "name": "University Grants Commission ",
+      "image": "assets/ugc_logo.png",
+      "link": "https://www.ugc.ac.in/"
+    },
+    {
+      "name": "University Grants Commission (UGC)-NET",
+      "image": "assets/ugcNetlogo.jpg",
+      "link": "https://ugcnet.nta.nic.in/WebInfo/Page/Page?PageId=1&LangId=P"
+    },
+    {
+      "name": "The Union Public Service Commission",
+      "image": "assets/upscLogo.jpg",
+      "link": "https://www.upsc.gov.in/"
+    },
+  ];
+
   RxList notificationData = [].obs;
 
   void goToAboutUsPage() {

@@ -1,5 +1,4 @@
 import 'package:college_web/app/modules/widgets/custom_drawer.dart';
-import 'package:college_web/app/modules/widgets/footer.dart';
 import 'package:college_web/app/modules/widgets/menu_bar_widget.dart';
 import 'package:college_web/app/modules/widgets/responsive.dart';
 import 'package:college_web/app/routes/app_pages.dart';
@@ -7,9 +6,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/commerce_controller.dart';
+import '../controllers/feedback_controller.dart';
 
-class CommerceView extends GetView<CommerceController> {
+class FeedbackView extends GetView<FeedbackController> {
   @override
   Widget build(BuildContext context) {
     final bool isDesktop = Responsive.isDesktop(context);
@@ -60,35 +59,10 @@ class CommerceView extends GetView<CommerceController> {
               child: DrawerMenu(),
             )
           : null,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              padding: EdgeInsets.only(left: 40, bottom: 30),
-              height: Get.height * .7,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/about.jpg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: Text(
-                  "MEET RDBM",
-                  textScaleFactor: 1,
-                  style: TextStyle(
-                    color: Colors.grey[100],
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 5,
-                  ),
-                ),
-              ),
-            ),
-            FooterWidget(),
-          ],
+      body: Center(
+        child: Text(
+          'FeedbackView is working',
+          style: TextStyle(fontSize: 20),
         ),
       ),
     );

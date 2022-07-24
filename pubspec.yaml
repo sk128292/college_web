@@ -9,7 +9,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.1
   http: ^0.13.4
-  marquee: ^2.2.0
+  marquee_widget: ^1.2.0
   carousel_slider: ^4.0.0
   flutter: 
     sdk: flutter
