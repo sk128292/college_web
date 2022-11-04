@@ -28,6 +28,8 @@ import 'package:college_web/app/modules/learningPortal/bindings/learning_portal_
 import 'package:college_web/app/modules/learningPortal/views/learning_portal_view.dart';
 import 'package:college_web/app/modules/naacIqac/bindings/naac_iqac_binding.dart';
 import 'package:college_web/app/modules/naacIqac/views/naac_iqac_view.dart';
+import 'package:college_web/app/modules/newsMedia/bindings/news_media_binding.dart';
+import 'package:college_web/app/modules/newsMedia/views/news_media_view.dart';
 import 'package:college_web/app/modules/notification/bindings/notification_binding.dart';
 import 'package:college_web/app/modules/notification/views/notification_view.dart';
 import 'package:college_web/app/modules/science/bindings/science_binding.dart';
@@ -127,6 +129,11 @@ class AppPages {
       name: _Paths.ADMISSION_FORM,
       page: () => AdmissionFormView(),
       binding: AdmissionFormBinding(),
+    ),
+    GetPage(
+      name: _Paths.NEWS_MEDIA,
+      page: () => NewsMediaView(),
+      binding: NewsMediaBinding(),
     ),
   ];
 }

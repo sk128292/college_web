@@ -255,10 +255,10 @@ class _MenuBarState extends State<MenuBar> {
                     },
                     child: InkWell(
                       onTap: () {
-                        // Get.toNamed(Routes.ABOUT_US);
+                        Get.toNamed(Routes.NEWS_MEDIA);
                       },
                       child: Text(
-                        "NEWS",
+                        "MEDIA",
                         textScaleFactor: 1,
                         style: TextStyle(
                           fontSize: MediaQuery.of(context).size.width * .012,

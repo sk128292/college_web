@@ -8,8 +8,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
+import 'dart:html' as html;
 
 class DepartmentView extends GetView<DepartmentController> {
   @override
@@ -212,16 +214,230 @@ class DepartmentView extends GetView<DepartmentController> {
                                       elevation: 5,
                                       child: Padding(
                                         padding: const EdgeInsets.all(10.0),
-                                        child: Text(
-                                          controller
-                                              .allProgramData[controller
-                                                  .selectedIndex.value]
-                                              .facultyOfSubjectsData[index]
-                                              .departmentName
-                                              .toString(),
-                                          style: TextStyle(
-                                            fontSize: 20,
-                                          ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              controller
+                                                  .allProgramData[controller
+                                                      .selectedIndex.value]
+                                                  .facultyOfSubjectsData[index]
+                                                  .departmentName
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 22,
+                                              ),
+                                            ),
+                                            SizedBox(height: 20),
+                                            Column(
+                                              children: [
+                                                Table(
+                                                  columnWidths: {
+                                                    0: FlexColumnWidth(1),
+                                                    1: FlexColumnWidth(1),
+                                                    2: FlexColumnWidth(1),
+                                                    3: FlexColumnWidth(1),
+                                                  },
+                                                  defaultVerticalAlignment:
+                                                      TableCellVerticalAlignment
+                                                          .middle,
+                                                  border: TableBorder.all(
+                                                      color: Colors.black),
+                                                  children: [
+                                                    TableRow(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  15),
+                                                          child: Text(
+                                                            "Brief Introduction",
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 20,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  15.0),
+                                                          child: Text(
+                                                            "Teacher Profiles",
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 20,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  15.0),
+                                                          child: Text(
+                                                            "Syllabus",
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 20,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  15.0),
+                                                          child: Text(
+                                                            "e-Learning",
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 22,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                Table(
+                                                  columnWidths: {
+                                                    0: FlexColumnWidth(1),
+                                                    1: FlexColumnWidth(1),
+                                                    2: FlexColumnWidth(1),
+                                                    3: FlexColumnWidth(1),
+                                                  },
+                                                  defaultVerticalAlignment:
+                                                      TableCellVerticalAlignment
+                                                          .middle,
+                                                  border: TableBorder.all(
+                                                      color: Colors.black),
+                                                  children:
+                                                      List<TableRow>.generate(
+                                                    controller
+                                                        .allProgramData[
+                                                            controller
+                                                                .selectedIndex
+                                                                .value]
+                                                        .facultyOfSubjectsData[
+                                                            index]
+                                                        .deptUnderFacultyOfSubjects
+                                                        .length,
+                                                    (facultyDataIndex) {
+                                                      return TableRow(
+                                                        children: [
+                                                          IconButton(
+                                                            onPressed: () {
+                                                              html.window.open(
+                                                                  controller
+                                                                      .allProgramData[controller
+                                                                          .selectedIndex
+                                                                          .value]
+                                                                      .facultyOfSubjectsData[
+                                                                          index]
+                                                                      .deptUnderFacultyOfSubjects[
+                                                                          facultyDataIndex]
+                                                                      .elearning
+                                                                      .toString(),
+                                                                  "_blank");
+                                                            },
+                                                            icon: Icon(
+                                                              Icons
+                                                                  .picture_as_pdf,
+                                                              color: Color(
+                                                                  0xFFA41E34),
+                                                            ),
+                                                          ),
+                                                          IconButton(
+                                                            onPressed: () {
+                                                              html.window.open(
+                                                                  controller
+                                                                      .allProgramData[controller
+                                                                          .selectedIndex
+                                                                          .value]
+                                                                      .facultyOfSubjectsData[
+                                                                          index]
+                                                                      .deptUnderFacultyOfSubjects[
+                                                                          facultyDataIndex]
+                                                                      .teacherprofiles
+                                                                      .toString(),
+                                                                  "_blank");
+                                                            },
+                                                            icon: Icon(
+                                                              Icons
+                                                                  .picture_as_pdf,
+                                                              color: Color(
+                                                                  0xFFA41E34),
+                                                            ),
+                                                          ),
+                                                          IconButton(
+                                                            onPressed: () {
+                                                              html.window.open(
+                                                                  controller
+                                                                      .allProgramData[controller
+                                                                          .selectedIndex
+                                                                          .value]
+                                                                      .facultyOfSubjectsData[
+                                                                          index]
+                                                                      .deptUnderFacultyOfSubjects[
+                                                                          facultyDataIndex]
+                                                                      .syllabus
+                                                                      .toString(),
+                                                                  "_blank");
+                                                            },
+                                                            icon: Icon(
+                                                              Icons
+                                                                  .picture_as_pdf,
+                                                              color: Color(
+                                                                  0xFFA41E34),
+                                                            ),
+                                                          ),
+                                                          IconButton(
+                                                            onPressed: () {
+                                                              html.window.open(
+                                                                  controller
+                                                                      .allProgramData[controller
+                                                                          .selectedIndex
+                                                                          .value]
+                                                                      .facultyOfSubjectsData[
+                                                                          index]
+                                                                      .deptUnderFacultyOfSubjects[
+                                                                          facultyDataIndex]
+                                                                      .elearning
+                                                                      .toString(),
+                                                                  "_blank");
+                                                            },
+                                                            icon: Icon(
+                                                              Icons
+                                                                  .picture_as_pdf,
+                                                              color: Color(
+                                                                  0xFFA41E34),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),

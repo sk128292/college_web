@@ -21,6 +21,7 @@ abstract class Routes {
   static const EXAMINATION = _Paths.EXAMINATION;
   static const FEEDBACK = _Paths.FEEDBACK;
   static const ADMISSION_FORM = _Paths.ADMISSION_FORM;
+  static const NEWS_MEDIA = _Paths.NEWS_MEDIA;
 }
 
 abstract class _Paths {
@@ -41,4 +42,5 @@ abstract class _Paths {
   static const EXAMINATION = '/examination';
   static const FEEDBACK = '/feedback';
   static const ADMISSION_FORM = '/admission-form';
+  static const NEWS_MEDIA = '/news-media';
 }
